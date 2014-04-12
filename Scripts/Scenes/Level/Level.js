@@ -5,11 +5,13 @@ var Level = function(){
     this.Name = null;
     this.MapManager = null;
     this.player = null;
+    this.playerScore = 0;
     /* private variables */
     var game = null;
     var levelFile = null;
     var levelInputHandler = null;
     var levelTime = null;
+    var hud = null;
     /* public functions */
 
     // Initialise which level file to use
@@ -29,6 +31,9 @@ var Level = function(){
         this.player = new Player();
         this.player.Init(game, this);
         this.player.PlayerSettings(300,375,25);
+        hud = new Hud();
+        hud.Init(game, this)
+
         //Initialise input handling
         levelInputHandler = new LevelInputHandler();
         levelInputHandler.Init(this, game);
@@ -47,9 +52,12 @@ var Level = function(){
                 if (this.player.Ready && this.player.Status == "Alive") {
                     this.MapManager.Map.Update();
                     this.player.Update(delta);
+                    this.playerScore = this.MapManager.Map.MapCanvasLocation;
+                    hud.Update();
                 }
             }
         }
+
     };
 
     // When the Level is rendered (call after the update function)
@@ -57,6 +65,7 @@ var Level = function(){
         if(this.AssetsLoaded()){
             this.MapManager.Map.Draw();
             this.player.Draw();
+            hud.Draw();
         }
         if(!this.player.Ready){
             var context = game.Settings.Context;

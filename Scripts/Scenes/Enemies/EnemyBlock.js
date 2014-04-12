@@ -41,10 +41,10 @@ var EnemyBlock = function(x, velXparam, floorHeight){
             jumping = false;
         }
 
-        if(Math.floor((Math.random()*100)+1) < 2) {
+        if(Math.floor((Math.random()*1000)+1) < 10) {
             this.DoColourChange();
         }
-        if(Math.floor((Math.random()*100)+1) < 2) {
+        if(Math.floor((Math.random()*1000)+1) < 10) {
             this.Jump();
         }
     };

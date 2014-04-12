@@ -6,6 +6,7 @@ var Player = function(){
     this.Y = 0;
     this.Size = 0;
     this.Colour = "#FFFFFF";
+    this.Lives = 5;
 
     // Image Frame that needs to be drawn
     this.PlayerImageFrame = 0;
@@ -143,6 +144,8 @@ var Player = function(){
     };
 
     this.Die = function(){
+        this.Lives--;
+        level.playerScore -= level.MapManager.Map.LevelEndX;
         if(this.Status == "Alive") {
             this.Status = "Dying";
             var emitter = new Emitter(this.X, this.Y, this.Colour, game);
