@@ -19,6 +19,14 @@ var LevelManager = function(){
                 game.SceneManager.Pop();
                 game.SceneManager.Push(level);
                 break;
+            case 2:
+                console.log("Loading Level 2");
+                var level = new Level();
+                level.Init("Assets/Maps/Level2.json");
+                game.AudioManager.StopAll();
+                game.SceneManager.Pop();
+                game.SceneManager.Push(level);
+                break;
             default:
                 console.log("Error Level" + levelnumber + " Not Defined");
                 break;

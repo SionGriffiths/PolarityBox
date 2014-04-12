@@ -5,15 +5,15 @@
     "EndX" : 4000,
     "EndY" : 150,
     "LevelImages" : [
-        {"ID" : "Level1Background", "Src" : "Assets/Images/Level1Background.png" },
-        {"ID" : "Level1Floor", "Src" : "Assets/Images/w2.png" },
+        {"ID" : "Level2Background", "Src" : "Assets/Images/Level2Background.png" },
+        {"ID" : "Level2Floor", "Src" : "Assets/Images/Level2Floor.png" },
         {"ID" : "EnemyBlockImage", "Src" : "Assets/Images/EnemySprite.png" },
         {"ID" : "Endgate", "Src" : "Assets/Images/EndGate.png"}
     ],
     "HeightMap" : [
-        { "X" : 0, "H" : 200,"W" : 500 ,"C" : "#000000"},
-        { "X" : 500, "H" : 200,"W" : 50, "C" : "#22AA11"},
-        { "X" : 550, "H" : 150,"W" : 25, "C" : "#22AA11"},
+        { "X" : 0, "H" : 200,"W" : 500 ,"C" : "#bada55"},
+        { "X" : 500, "H" : 200,"W" : 50, "C" : "#ffffff"},
+        { "X" : 550, "H" : 150,"W" : 25, "C" : "#bada55"},
         { "X" : 575, "H" : 200,"W" : 400, "C" : "#22AA11"},
         { "X" : 1000, "H" : 200,"W" : 500, "C" : "#226644"},
         { "X" : 1500, "H" : 200,"W" : 500, "C" : "#000000"},
@@ -23,7 +23,17 @@
     ],
 
     "EnemyBlocks" : [
-
+        {"X" : 550, "H" : 150},
+        {"X" : 700, "H" : 200},
+        {"X" : 1100, "H" : 200},
+        {"X" : 1400, "H" : 200},
+        {"X" : 1750, "H" : 200},
+        {"X" : 2222, "H" : 200},
+        {"X" : 2600, "H" : 200},
+        {"X" : 2900, "H" : 200},
+        {"X" : 3333, "H" : 150},
+        {"X" : 3750, "H" : 150},
+        {"X" : 3850, "H" : 150}
 
     ]
 }

@@ -4,13 +4,10 @@ var Level = function(){
     /* public variables */
     this.Name = null;
     this.MapManager = null;
+    this.player = null;
     /* private variables */
     var game = null;
     var levelFile = null;
-
-    this.player = null;
-    var levelObjects = null;
-
     var levelInputHandler = null;
 
     /* public functions */
@@ -58,7 +55,10 @@ var Level = function(){
         }
     };
 
-
+    this.FinishedLevel = function(){
+        game.LevelNumber++;
+        game.LevelManager.LoadLevel(game.LevelNumber);
+    };
 
     // Pause and unpause
     // TODO: Write Pause and Unpause methods
@@ -72,6 +72,6 @@ var Level = function(){
 
     // Check to see if assets are loaded
     this.AssetsLoaded = function(){
-       return (this.MapManager.Loaded && this.player.Loaded);
+        return (this.MapManager.Loaded && this.player.Loaded);
     };
 };

@@ -8,6 +8,7 @@ var Game = function(){
     this.AudioManager = null;
     this.ImageManager = null;
     this.LevelManager = null;
+    this.LevelNumber = 0;
 
     // Initialise the settings & managers
     this.Init = function (canvas, context) {

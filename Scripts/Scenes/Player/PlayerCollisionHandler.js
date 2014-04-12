@@ -18,6 +18,7 @@ var PlayerCollisionHandler = function(){
 
         if(this.isEndLevel()){
             player.Die();
+            level.FinishedLevel();
         }
 
         if(this.PlayerOnEnemyCollision()){
