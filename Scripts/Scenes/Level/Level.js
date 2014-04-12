@@ -9,7 +9,7 @@ var Level = function(){
     var game = null;
     var levelFile = null;
     var levelInputHandler = null;
-
+    var levelTime = null;
     /* public functions */
 
     // Initialise which level file to use
@@ -21,7 +21,7 @@ var Level = function(){
     // When the Level is loaded
     this.onEnter = function (gameRef){
         game = gameRef;
-
+        levelTime = 0;
         // Initialise Map Manager on Enter
         this.MapManager = new LevelMapManager();
         this.MapManager.Init(game);
@@ -40,10 +40,15 @@ var Level = function(){
 
     // When the Level is updated
     this.Update = function (delta) {
-        if(this.AssetsLoaded()){
-            levelInputHandler.HandleInputs();
-            this.MapManager.Map.Update();
-            this.player.Update(delta);
+        levelTime += delta;
+        if(this.AssetsLoaded()) {
+            if (levelTime > 200) {
+                levelInputHandler.HandleInputs();
+                if (this.player.Ready) {
+                    this.MapManager.Map.Update();
+                    this.player.Update(delta);
+                }
+            }
         }
     };
 
@@ -52,6 +57,13 @@ var Level = function(){
         if(this.AssetsLoaded()){
             this.MapManager.Map.Draw();
             this.player.Draw();
+        }
+        if(!this.player.Ready){
+            var context = game.Settings.Context;
+            var canvas = game.Settings.Canvas;
+            context.fillStyle = "#FFF";
+            context.font = "24pt Courier";
+            context.fillText("Click to begin", canvas.width/2, canvas.height/2);
         }
     };
 

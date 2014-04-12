@@ -22,7 +22,7 @@ var Player = function(){
     this.VelocityX = 0;
     this.VelocityY = 0;
 
-
+    this.Ready = false;
     /* private variables */
 
     // Jumping Vars

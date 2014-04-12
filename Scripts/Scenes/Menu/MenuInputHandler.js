@@ -44,7 +44,7 @@ var MenuInputHandler = function() {
                 {
                     loading = true;
                     game.LevelNumber++;
-                    game.LevelManager.LoadLevel(game.LevelNumber);
+                    game.LevelManager.LoadLevel(2);
                 }
             }
         }

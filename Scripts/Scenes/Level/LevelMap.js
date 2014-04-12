@@ -73,7 +73,7 @@ var LevelMap = function(){
                 context.translate(currentRect.X - this.MapCanvasLocation,currentRect.Y );
                 context.fillRect(0, 0,currentRect.W, currentRect.H);
                 context.restore();
-                
+
                 //Overlay textures with colour
                 context.fillStyle = Colours.ColourToRGB(currentRect.C, "0.75");
                 context.fillRect(currentRect.X - this.MapCanvasLocation, currentRect.Y,currentRect.W, currentRect.H);

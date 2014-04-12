@@ -32,8 +32,8 @@ var LevelInputHandler = function(){
         // Mouse stuff
         if(!($.inArray(1, buttons) == -1)) // Left Click
         {
-            if (!level.player.ready) {
-                level.player.ready = true;
+            if (!level.player.Ready) {
+                level.player.Ready = true;
             }
             else
                 level.player.Jump();
