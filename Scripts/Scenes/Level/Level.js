@@ -44,13 +44,12 @@ var Level = function(){
         if(this.AssetsLoaded()) {
             if (levelTime > 200) {
                 levelInputHandler.HandleInputs();
-                if (this.player.Ready && this.player.Status != "Dead") {
+                if (this.player.Ready && this.player.Status == "Alive") {
                     this.MapManager.Map.Update();
                     this.player.Update(delta);
                 }
             }
         }
-
     };
 
     // When the Level is rendered (call after the update function)
