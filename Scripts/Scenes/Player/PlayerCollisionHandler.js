@@ -16,10 +16,13 @@ var PlayerCollisionHandler = function(){
     this.Update = function(){
         var currentCollisions = this.PlayerMapCollisions();
 
+        if(this.PlayerOnEnemyCollision()){
+            player.Die();
+        }
         // If collisions > 0 then we need to handle them
         if(currentCollisions.length > 0){
 
-            //single rect collide easy to deal with
+            //single Rect collide easy to deal with
             if(currentCollisions.length == 1){
                 var rect =  currentCollisions[0];
 
@@ -45,7 +48,7 @@ var PlayerCollisionHandler = function(){
                 } else {
                     // TODO: Implement multi collision detection when not necessarily safe
 //                    for (var index = 0; index < currentCollisions.length; index++) {
-                        player.Die();
+                    player.Die();
 //                    }
                 }
             }
@@ -67,7 +70,7 @@ var PlayerCollisionHandler = function(){
 
         for(var index = 0; index < currentMapRects.length; index++){
             var current = currentMapRects[index];
-            var playerRect = player.rect();
+            var playerRect = player.Rect();
             playerRect.X = playerLevelX;
             if(collision.boxIntersect(playerRect , current)){
                 collisionBoxes.push(current);
@@ -101,13 +104,13 @@ var PlayerCollisionHandler = function(){
             var rect =  playerMapCollisions[0];
             for(var index = 1; index < playerMapCollisions.length; index++){
                 //ignore collisions of same colour
-                if(playerMapCollisions[index].C == player.C){
+                if(playerMapCollisions[index].C == player.Colour){
                     playerMapCollisions.splice(index, 1);
                     playerMapCollisions.splice(index, 1);
                 }
             }
             for(var index = 1; index < playerMapCollisions.length; index++){
-                if((playerMapCollisions[index].Y != rect.Y) || (collision.isSameColour(player.C, playerMapCollisions[index].C))){
+                if((playerMapCollisions[index].Y != rect.Y) || (collision.isSameColour(player.Colour, playerMapCollisions[index].C))){
                     return false;
                 }
             }
@@ -115,6 +118,18 @@ var PlayerCollisionHandler = function(){
         }
     };
 
+    this.PlayerOnEnemyCollision = function() {
 
+        var enemyList = level.MapManager.Map.EnemyList;
+        console.log(enemyList);
+
+        for (var index = 0; index < enemyList.length; index++){
+             if((collision.boxIntersect(player.Rect(),  enemyList[index].Rect()) &&
+                !collision.isSameColour(player.Colour, enemyList[index].Colour ))){
+                 return true;
+             }
+        }
+        return false;
+    };
 
 };

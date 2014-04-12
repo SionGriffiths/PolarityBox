@@ -58,6 +58,8 @@ var Level = function(){
         }
     };
 
+
+
     // Pause and unpause
     // TODO: Write Pause and Unpause methods
     this.onPause = function (){};

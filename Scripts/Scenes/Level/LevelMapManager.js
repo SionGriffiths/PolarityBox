@@ -56,7 +56,9 @@ var LevelMapManager = function() {
             });
 
             $.each(mapData.EnemyBlocks, function(i, item){
-                self.Map.EnemyList.push(new EnemyBlock(item.X, item.H));
+                var block = new EnemyBlock(item.X, -mapData.Speed, (game.Settings.Canvas.height - item.H));
+                block.Init(game);
+                self.Map.EnemyList.push(block);
             });
         });
     };

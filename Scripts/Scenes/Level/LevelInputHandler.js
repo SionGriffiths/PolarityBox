@@ -15,16 +15,16 @@ var LevelInputHandler = function(){
         var x = game.InputManager.mouseX;
         var y = game.InputManager.mouseY;
         var buttons = game.InputManager.mouseButtons
-        var keys = game.keysDown;
+        var keys = game.InputManager.keysDown;
 
         // Keyboard stuff
         if(!($.inArray(68, keys) == -1) && (!($.inArray(65, keys) == -1)))
-            level.player.velX = 0;
+            level.player.VelocityX = 0;
         else if(!($.inArray(68, keys) == -1))
-            level.player.velX = 3;
+            level.player.VelocityX = 3;
         else if(!($.inArray(65, keys) == -1))
-            level.player.velX = -3;
-        else level.player.velX = 0;
+            level.player.VelocityX = -3;
+        else level.player.VelocityX = 0;
 
         if(!($.inArray(32, keys) == -1))
             level.player.Jump();

@@ -40,6 +40,11 @@ var LevelMap = function(){
         if(this.MapCanvasLocation <= this.Length - game.Settings.Canvas.width - this.Speed) {
             this.MapCanvasLocation += this.Speed;
         }
+        for(var index = 0; index < this.EnemyList.length; index++){
+//            if(this.CurrentlyOnScreen(this.EnemyList[index].Rect())){
+                this.EnemyList[index].Update();
+//            }
+        }
     };
 
     // Draws the current map
@@ -62,6 +67,12 @@ var LevelMap = function(){
                 context.fillStyle = Colours.ColourToRGB(currentRect.C, "0.75");
                 context.fillRect(currentRect.X - this.MapCanvasLocation, currentRect.Y,currentRect.W, currentRect.H);
             }
+        }
+        for(var index = 0; index < this.EnemyList.length; index++){
+//            var currentEnemy = this.EnemyList[index].Rect();
+//            if(this.CurrentlyOnScreen(currentEnemy)){
+                this.EnemyList[index].Draw();
+//            }
         }
 
     };

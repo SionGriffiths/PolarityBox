@@ -152,7 +152,7 @@ var Player = function(){
         }
     };
 
-    this.rect = function(){
+    this.Rect = function(){
         return {X: this.X , Y: this.Y, W: this.Size, H: this.Size, C: this.Colour };
     };
 
