@@ -13,6 +13,7 @@ var PlayerAnimationHandler = function(){
     var rotationSpeed = 4;
     var deathEmitter = null;
     var timeOfDeath = null;
+    var lastFlipTime = 0;
 
     /* public functions */
 
@@ -35,12 +36,18 @@ var PlayerAnimationHandler = function(){
         }
     };
 
-    this.ColourTransition = function(){
-        animatingColourTransition = true;
+    //Allow colour change - only ever 200ms
+    this.ColourTransition = function(flipTime){
+        if(flipTime - lastFlipTime > 200) {
+            animatingColourTransition = true;
+            lastFlipTime = Date.now();
+        }
     };
 
     this.FlipTransition = function(){
+
         animatingFlipTransition = true;
+
     };
 
     this.DeathTransition = function(emitter, time){

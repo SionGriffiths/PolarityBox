@@ -130,7 +130,7 @@ var Player = function(){
 
     // Swap player colour
     this.ChangeColour = function(){
-        playerAnimationHandler.ColourTransition();
+        playerAnimationHandler.ColourTransition(Date.now());
     };
 
     // Jump -- Duh.
