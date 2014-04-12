@@ -122,10 +122,10 @@ var Player = function(){
                 this.Size);
         }
 
-
+        playerAnimationHandler.Update();
         // Game context restore
         game.Settings.Context.restore();
-        playerAnimationHandler.Update();
+
     };
 
     // Swap player colour

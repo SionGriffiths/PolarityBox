@@ -16,6 +16,10 @@ var PlayerCollisionHandler = function(){
     this.Update = function(){
         var currentCollisions = this.PlayerMapCollisions();
 
+        if(this.isEndLevel()){
+            player.Die();
+        }
+
         if(this.PlayerOnEnemyCollision()){
             player.Die();
         }
@@ -121,7 +125,6 @@ var PlayerCollisionHandler = function(){
     this.PlayerOnEnemyCollision = function() {
 
         var enemyList = level.MapManager.Map.EnemyList;
-        console.log(enemyList);
 
         for (var index = 0; index < enemyList.length; index++){
              if((collision.boxIntersect(player.Rect(),  enemyList[index].Rect()) &&
@@ -131,5 +134,18 @@ var PlayerCollisionHandler = function(){
         }
         return false;
     };
+
+    this.isEndLevel = function(){
+        var playerLevelX = level.MapManager.Map.MapCanvasLocation + player.X;
+        if(playerLevelX > level.MapManager.Map.LevelEndX - 64){
+            var rectX = level.MapManager.Map.LevelEndX-64-level.MapManager.Map.MapCanvasLocation;
+            var endGameRect = {X : rectX , Y: level.MapManager.Map.LevelEndY - 46, W: 64, H: 45};
+            if(collision.boxIntersect(player.Rect(), endGameRect)){
+                console.log("you are teh winrar");
+                return true;
+            }
+        }
+        return false;
+    }
 
 };

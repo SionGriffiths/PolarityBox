@@ -12,6 +12,9 @@ var LevelMap = function(){
     this.Speed = null;
     // Length of the level
     this.Length = null;
+
+    this.LevelEndX = null;
+    this.LevelEndY = null;
     // Background Name
     this.BackgroundName = null;
 
@@ -53,6 +56,7 @@ var LevelMap = function(){
         var context = game.Settings.Context;
         context.drawImage(game.ImageManager.Images[this.BackgroundName], 0,0);
 
+
         // Loop through map array and and draw each segment to the canvas
         for(var index = 0; index < this.RenderMap.length; index++){
 
@@ -73,6 +77,11 @@ var LevelMap = function(){
 //            if(this.CurrentlyOnScreen(currentEnemy)){
                 this.EnemyList[index].Draw();
 //            }
+        }
+
+        //offset end gate image by canvas position and image width.
+        if(this.MapCanvasLocation > this.LevelEndX - game.Settings.Canvas.width -64){
+            context.drawImage(game.ImageManager.Images["Endgate"], this.LevelEndX-64-this.MapCanvasLocation, this.LevelEndY - 45);
         }
 
     };
