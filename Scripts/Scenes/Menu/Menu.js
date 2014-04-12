@@ -79,6 +79,7 @@ var Menu = function(){
             assetsLoaded = true;
         }
     };
+
     // Not used for the menu
     this.onPause = function (){ console.log("Why would you pause a menu ... "); };
     this.onResume= function (){ console.log("You even tried to un-pause it!?!"); };
