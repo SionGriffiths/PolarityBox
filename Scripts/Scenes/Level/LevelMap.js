@@ -67,7 +67,14 @@ var LevelMap = function(){
             if((currentRect.X >= this.MapCanvasLocation) || (currentRect.X < this.MapCanvasLocation && (currentRect.X + currentRect.W) > this.MapCanvasLocation )){
                 var pattern = context.createPattern(game.ImageManager.Images[this.FloorTextureName], "repeat");
                 context.fillStyle = pattern;
-                context.fillRect(currentRect.X - this.MapCanvasLocation, currentRect.Y,currentRect.W, currentRect.H);
+
+                //Move start position of texture pattern to x/y of rect so they're always still to canvas.
+                context.save();
+                context.translate(currentRect.X - this.MapCanvasLocation,currentRect.Y );
+                context.fillRect(0, 0,currentRect.W, currentRect.H);
+                context.restore();
+                
+                //Overlay textures with colour
                 context.fillStyle = Colours.ColourToRGB(currentRect.C, "0.75");
                 context.fillRect(currentRect.X - this.MapCanvasLocation, currentRect.Y,currentRect.W, currentRect.H);
             }
