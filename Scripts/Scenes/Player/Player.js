@@ -144,7 +144,6 @@ var Player = function(){
 
     this.Die = function(){
         if(this.Status == "Alive") {
-
             this.Status = "Dying";
             var emitter = new Emitter(this.X, this.Y, this.Colour, game);
             var timeOfDeath = Date.now();

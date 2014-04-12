@@ -17,7 +17,6 @@ var PlayerCollisionHandler = function(){
         var currentCollisions = this.PlayerMapCollisions();
 
         if(this.isEndLevel()){
-            player.Die();
             level.FinishedLevel();
         }
 
