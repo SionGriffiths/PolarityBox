@@ -128,7 +128,8 @@ var PlayerCollisionHandler = function(){
 
         for (var index = 0; index < enemyList.length; index++){
              if((collision.boxIntersect(player.Rect(),  enemyList[index].Rect()) &&
-                !collision.isSameColour(player.Colour, enemyList[index].Colour ))){
+                !collision.isSameColour(player.Colour, enemyList[index].Colour )) &&
+                 !collision.isHigher(enemyList[index].Y + enemyList[index].Size, player.Y)){
                  return true;
              }
         }
