@@ -1,20 +1,36 @@
 { 
 	"Name" : "Level 1",
-	"Speed" : 0,
+	"Speed" : 2,
 	"Length" : 4000,
     "LevelImages" : [
         {"ID" : "Level1Background", "Src" : "Assets/Images/Level1Background.png" },
-        {"ID" : "Level1Floor", "Src" : "Assets/Images/w2.png" }
+        {"ID" : "Level1Floor", "Src" : "Assets/Images/w2.png" },
+        {"ID" : "EnemyBlockImage", "Src" : "Assets/Images/EnemySprite.png" }
     ],
     "HeightMap" : [
 		{ "X" : 0, "H" : 200,"W" : 500 ,"C" : "#000000"},
-		{ "X" : 500, "H" : 225,"W" : 500, "C" : "#226644"},
+		{ "X" : 500, "H" : 150,"W" : 500, "C" : "#22AA11"},
 		{ "X" : 1000, "H" : 200,"W" : 500, "C" : "#226644"},
 		{ "X" : 1500, "H" : 200,"W" : 500, "C" : "#000000"},
 		{ "X" : 2100, "H" : 200,"W" : 400, "C" : "#ffffff"},
 		{ "X" : 2600, "H" : 200,"W" : 400, "C" : "#662244"},
 		{ "X" : 3000, "H" : 150,"W" : 1000, "C" : "#A3B6D1"}
-	]
+	],
+    "EnemyBlocks" : [
+        {"X" : 550, "H" : 225},
+        {"X" : 700, "H" : 225},
+        {"X" : 1000, "H" : 200},
+        {"X" : 1400, "H" : 200},
+        {"X" : 1750, "H" : 200},
+        {"X" : 2000, "H" : 200},
+        {"X" : 2222, "H" : 200},
+        {"X" : 2600, "H" : 200},
+        {"X" : 2900, "H" : 200},
+        {"X" : 3333, "H" : 150},
+        {"X" : 3750, "H" : 150},
+        {"X" : 3850, "H" : 150}
+
+    ]
 }
 
 

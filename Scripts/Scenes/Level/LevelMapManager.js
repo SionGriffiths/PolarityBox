@@ -54,6 +54,10 @@ var LevelMapManager = function() {
                 }
                 game.ImageManager.LoadAsync(item.ID, item.Src, self.loadCallBack());
             });
+
+            $.each(mapData.EnemyBlocks, function(i, item){
+                self.Map.EnemyList.push(new EnemyBlock(item.X, item.H));
+            });
         });
     };
 

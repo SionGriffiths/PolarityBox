@@ -18,6 +18,8 @@ var LevelMap = function(){
     this.FloorTextureName = null;
 
     this.MapCanvasLocation = 0;
+
+    this.EnemyList = [];
     /* private variables */
 
 
@@ -61,6 +63,7 @@ var LevelMap = function(){
                 context.fillRect(currentRect.X - this.MapCanvasLocation, currentRect.Y,currentRect.W, currentRect.H);
             }
         }
+
     };
 
 

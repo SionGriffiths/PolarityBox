@@ -29,7 +29,7 @@ var PlayerCollisionHandler = function(){
                     document.getElementById("debug2").innerHTML = "safe" + "</br>";
                 }else{
                     // Not safe!
-                    if(rect.C != player.C){
+                    if(rect.C != player.Colour){
                         document.getElementById("debug2").innerHTML = "DIE!" + "</br>";
                         player.Die(); //ignore the collision
                     }
@@ -44,10 +44,9 @@ var PlayerCollisionHandler = function(){
                     document.getElementById("debug2").innerHTML = "safeMulti" + "</br>";
                 } else {
                     // TODO: Implement multi collision detection when not necessarily safe
-                    for (var index = 0; index < currentCollisions.length; index++) {
-
+//                    for (var index = 0; index < currentCollisions.length; index++) {
                         player.Die();
-                    }
+//                    }
                 }
             }
         }
@@ -112,7 +111,7 @@ var PlayerCollisionHandler = function(){
                     return false;
                 }
             }
-            return (this.isHigher(player.Y + player.Size, rect.Y));
+            return (collision.isHigher(player.Y + player.Size, rect.Y + player.VelocityY));
         }
     };
 

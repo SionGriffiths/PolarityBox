@@ -27,7 +27,7 @@ var LevelInputHandler = function(){
         else level.player.velX = 0;
 
         if(!($.inArray(32, keys) == -1))
-            level.player.jump();
+            level.player.Jump();
 
         // Mouse stuff
         if(!($.inArray(1, buttons) == -1)) // Left Click
@@ -36,14 +36,14 @@ var LevelInputHandler = function(){
                 level.player.ready = true;
             }
             else
-                level.player.jump();
+                level.player.Jump();
         }
 
-        if(!($.inArray(2, buttons) == -1)) // Middle Mouse
-            level.player.flip();
+//        if(!($.inArray(2, buttons) == -1)) // Middle Mouse
+//            level.player.Flip();
 
         if(!($.inArray(3, buttons) == -1)) // Right Click
-            level.player.transition();
+            level.player.ChangeColour();
 
 
     };

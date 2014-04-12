@@ -45,8 +45,6 @@ var Menu = function(){
         var canvas_width = game.Settings.Canvas.width;
         var canvas_height = game.Settings.Canvas.height;
         if(assetsLoaded) {
-
-            context.save();
             context.drawImage(game.ImageManager.Images["MenuBackground"], 0, 0, canvas_width, canvas_height);
             context.drawImage(game.ImageManager.Images["titlePic"], ((canvas_width/2)-226), 25, 452, 50);
             context.textAlign = "center";

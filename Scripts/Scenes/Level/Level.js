@@ -8,7 +8,7 @@ var Level = function(){
     var game = null;
     var levelFile = null;
 
-    var player = null;
+    this.player = null;
     var levelObjects = null;
 
     var levelInputHandler = null;
@@ -18,6 +18,7 @@ var Level = function(){
     // Initialise which level file to use
     this.Init = function (levelFileLocation){
         levelFile = levelFileLocation;
+
     };
 
     // When the Level is loaded
@@ -28,10 +29,12 @@ var Level = function(){
         this.MapManager = new LevelMapManager();
         this.MapManager.Init(game);
         // Initialise Player
-        player = new Player();
-        player.Init(game, this);
-        player.PlayerSettings(300,300,25);
-
+        this.player = new Player();
+        this.player.Init(game, this);
+        this.player.PlayerSettings(300,375,25);
+        //Initialise input handling
+        levelInputHandler = new LevelInputHandler();
+        levelInputHandler.Init(this, game);
         /* Load any assets for the game */
         // Load Map
         this.MapManager.LoadMap(levelFile);
@@ -41,8 +44,9 @@ var Level = function(){
     // When the Level is updated
     this.Update = function (delta) {
         if(this.AssetsLoaded()){
+            levelInputHandler.HandleInputs();
             this.MapManager.Map.Update();
-            player.Update(delta);
+            this.player.Update(delta);
         }
     };
 
@@ -50,7 +54,7 @@ var Level = function(){
     this.Render  = function () {
         if(this.AssetsLoaded()){
             this.MapManager.Map.Draw();
-            player.Draw();
+            this.player.Draw();
         }
     };
 
@@ -66,6 +70,6 @@ var Level = function(){
 
     // Check to see if assets are loaded
     this.AssetsLoaded = function(){
-       return (this.MapManager.Loaded && player.Loaded);
+       return (this.MapManager.Loaded && this.player.Loaded);
     };
 };

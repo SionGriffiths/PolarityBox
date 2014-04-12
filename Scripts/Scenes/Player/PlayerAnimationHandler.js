@@ -10,7 +10,9 @@ var PlayerAnimationHandler = function(){
     var animatingColourTransition = false;
     var animatingFlipTransition = false;
     var animatingDeathTransition = false;
-    var rotationSpeed = 3;
+    var rotationSpeed = 4;
+    var deathEmitter = null;
+    var timeOfDeath = null;
 
     /* public functions */
 
@@ -20,12 +22,13 @@ var PlayerAnimationHandler = function(){
     };
 
 
-    this.Update = function(delta){
-        if(animatingDeathTransition)
+    this.Update = function(){
+        if(animatingDeathTransition) {
             UpdateDeathTransition();
-        else {
-            if (animatingColourTransition)
+        }else {
+            if (animatingColourTransition) {
                 UpdateColourTransition(player);
+            }
             if (animatingFlipTransition){
                 UpdateFlipTransition(player);
             }
@@ -40,12 +43,18 @@ var PlayerAnimationHandler = function(){
         animatingFlipTransition = true;
     };
 
-    this.DeathTransition = function(){
+    this.DeathTransition = function(emitter, time){
         animatingDeathTransition = true;
+        deathEmitter = emitter;
+        timeOfDeath = time;
     };
 
     var UpdateDeathTransition = function(){
-
+        if((Date.now() - timeOfDeath) < 2000) {
+            deathEmitter.update();
+        }else{
+            player.Status = "Dead";
+        }
     };
 
     /* private functions */

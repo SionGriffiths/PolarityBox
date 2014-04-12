@@ -87,9 +87,10 @@ var Player = function(){
                 this.Die();
             }
         }
+
         playerCollisionHandler.Update();
         // Update Animations
-        playerAnimationHandler.Update(delta);
+
     };
 
     // Draw player
@@ -121,8 +122,10 @@ var Player = function(){
                 this.Size);
         }
 
+
         // Game context restore
         game.Settings.Context.restore();
+        playerAnimationHandler.Update();
     };
 
     // Swap player colour
@@ -140,7 +143,13 @@ var Player = function(){
     };
 
     this.Die = function(){
-        playerAnimationHandler.DeathTransition();
+        if(this.Status == "Alive") {
+
+            this.Status = "Dying";
+            var emitter = new Emitter(this.X, this.Y, this.Colour, game);
+            var timeOfDeath = Date.now();
+            playerAnimationHandler.DeathTransition(emitter, timeOfDeath);
+        }
     };
 
     this.rect = function(){
@@ -148,10 +157,9 @@ var Player = function(){
     };
 
     this.SetOnFloor = function(floorHeight){
-        if(!jumping){
-            this.Y = floorHeight;
-            this.VelocityY = 0;
-        }
+
+        this.Y = floorHeight;
+        this.VelocityY = 0;
         jumping = false;
     }
 
