@@ -1,0 +1,50 @@
+
+var LevelInputHandler = function(){
+    var level = null;
+    var game = null;
+
+    // Initialise LevelInputHandler with level reference, and game reference
+    this.Init = function(levelRef, gameRef){
+        level = levelRef;
+        game = gameRef;
+    };
+
+    // TODO: Move the Handle Inputs from an polling based system to an Event Based system
+    this.HandleInputs = function(){
+        var canvas_width = game.Settings.Canvas.width;
+        var x = game.InputManager.mouseX;
+        var y = game.InputManager.mouseY;
+        var buttons = game.InputManager.mouseButtons
+        var keys = game.keysDown;
+
+        // Keyboard stuff
+        if(!($.inArray(68, keys) == -1) && (!($.inArray(65, keys) == -1)))
+            level.player.velX = 0;
+        else if(!($.inArray(68, keys) == -1))
+            level.player.velX = 3;
+        else if(!($.inArray(65, keys) == -1))
+            level.player.velX = -3;
+        else level.player.velX = 0;
+
+        if(!($.inArray(32, keys) == -1))
+            level.player.jump();
+
+        // Mouse stuff
+        if(!($.inArray(1, buttons) == -1)) // Left Click
+        {
+            if (!level.player.ready) {
+                level.player.ready = true;
+            }
+            else
+                level.player.jump();
+        }
+
+        if(!($.inArray(2, buttons) == -1)) // Middle Mouse
+            level.player.flip();
+
+        if(!($.inArray(3, buttons) == -1)) // Right Click
+            level.player.transition();
+
+
+    };
+};

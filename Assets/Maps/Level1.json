@@ -1,0 +1,22 @@
+{ 
+	"Name" : "Level 1",
+	"Speed" : 0,
+	"Length" : 4000,
+    "LevelImages" : [
+        {"ID" : "Level1Background", "Src" : "Assets/Images/Level1Background.png" },
+        {"ID" : "Level1Floor", "Src" : "Assets/Images/w2.png" }
+    ],
+    "HeightMap" : [
+		{ "X" : 0, "H" : 200,"W" : 500 ,"C" : "#000000"},
+		{ "X" : 500, "H" : 225,"W" : 500, "C" : "#226644"},
+		{ "X" : 1000, "H" : 200,"W" : 500, "C" : "#226644"},
+		{ "X" : 1500, "H" : 200,"W" : 500, "C" : "#000000"},
+		{ "X" : 2100, "H" : 200,"W" : 400, "C" : "#ffffff"},
+		{ "X" : 2600, "H" : 200,"W" : 400, "C" : "#662244"},
+		{ "X" : 3000, "H" : 150,"W" : 1000, "C" : "#A3B6D1"}
+	]
+}
+
+
+
+
