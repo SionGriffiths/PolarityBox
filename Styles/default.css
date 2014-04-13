@@ -31,9 +31,19 @@ h1,h2,h3,p{
     background-image: url("../Assets/Images/Level1Background.png");
 }
 
-#GameCanvas{
-    position: absolute;
+#overlay{
+    position: relative;
+    z-index: 2;
+
 }
+#GameCanvas {
+    width: 800px;
+    height: 600px;
+    position: absolute;
+    z-index: 1;
+ }
+
+
 
 #initialStuff{
     color: #FFF;
@@ -61,7 +71,7 @@ h1,h2,h3,p{
     margin : 0px auto;
 }
 #initialStuff input.button{
-    background-color: #F06060;
+    background-color: #0DFFB8;
     display: inline-block;
     color: #ffffff;
     font-size: 1em;
@@ -75,7 +85,7 @@ h1,h2,h3,p{
 
 #initialStuff input.button:hover, #initialStuff input.button:focus {
     cursor : pointer;
-    background-color : #000;
+    background-color : #FF8200;
 
 }
 
