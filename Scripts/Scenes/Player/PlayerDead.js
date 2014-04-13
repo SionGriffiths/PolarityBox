@@ -40,7 +40,6 @@ var PlayerDead = function(){
 
     this.HandleInputs = function(){
         var buttons = game.InputManager.mouseButtons;
-
         if(!($.inArray(1, buttons) == -1)){ // Left Click
             clicked = true;
         }

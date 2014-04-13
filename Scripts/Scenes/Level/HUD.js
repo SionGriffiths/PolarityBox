@@ -14,7 +14,7 @@ var Hud = function(){
         game = gameRef;
         level = levelRef;
         context = game.Settings.Context;
-        this.playerLives = level.player.Lives;
+
         this.playerScore = 0;
     };
 
@@ -25,7 +25,7 @@ var Hud = function(){
     this.Draw = function(){
         context.fillStyle = "#FFF";
         context.font = "12pt Helvetica";
-        context.fillText("Lives : " + this.playerLives, 50, 15);
+        context.fillText("Lives : " + game.Settings.playerLives, 50, 15);
         context.fillText("Score : " + this.playerScore, game.Settings.Canvas.width-100, 15);
     };
 
