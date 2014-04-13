@@ -63,8 +63,8 @@
 
                 // Create & Initialise Game
                 var game = new Game();
-                game.Init(canvas, context2d);
-
+                game.Init(canvas, context2d, $('#nameInput').val());
+                console.log(game.PlayerName);
                 // Start the Game & enter the game loop
                 game.StartGame();
             }

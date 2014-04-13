@@ -5,7 +5,7 @@
 var ScoreManager = function(){
 
     this.Score = 0;
-    this.PlayerName = null;
+
 
     var game;
     var localScore;

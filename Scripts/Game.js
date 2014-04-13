@@ -10,9 +10,10 @@ var Game = function(){
     this.LevelManager = null;
     this.ScoreManager = null;
     this.LevelNumber = 0;
+    this.PlayerName = null;
 
     // Initialise the settings & managers
-    this.Init = function (canvas, context) {
+    this.Init = function (canvas, context, playerName) {
         // New up Managers
         this.Settings = new GlobalSettings();
         this.SceneManager = new SceneManager();
@@ -30,6 +31,7 @@ var Game = function(){
         this.InputManager.InitKeyboard(document);
         this.Settings.Canvas = canvas;
         this.Settings.Context = context;
+        this.PlayerName = playerName;
     };
 
     // Starts the game, and enters the game loop

@@ -11,15 +11,21 @@ var InputManager = function() {
         element.addEventListener('mousemove', function (event) {
             var x, y;
 
-            if (event.pageX || event.pageY) {
-                x = event.pageX;
-                y = event.pageY;
-            } else {
-                x = event.clientX + document.body.scrollLeft + document.body.scrollLeft;
-                y = event.clientY + document.body.scrollTop + document.documentElement.scrollTop;
-            }
-            x -= element.offsetLeft;
-            y -= element.offsetTop;
+//            if (event.pageX || event.pageY) {
+//                x = event.pageX;
+//                y = event.pageY;
+//            } else {
+//                x = event.clientX + document.body.scrollLeft + document.body.scrollLeft;
+//                y = event.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+//            }
+//            x -= element.offsetLeft;
+//            y -= element.offsetTop;
+
+            //fix for x/y on an offset element - http://stackoverflow.com/questions/55677/how-do-i-get-the-coordinates-of-a-mouse-click-on-a-canvas-element
+
+            var canoffset = $(GameCanvas).offset();
+            x = event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft - Math.floor(canoffset.left);
+            y = event.clientY + document.body.scrollTop + document.documentElement.scrollTop - Math.floor(canoffset.top) + 1;
 
             self.mouseX = x;
             self.mouseY = y;
