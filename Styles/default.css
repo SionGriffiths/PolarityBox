@@ -4,6 +4,22 @@
     border : 0px;
 }
 
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto Regular'), local('Roboto-Regular'), url(http://themes.googleusercontent.com/static/fonts/roboto/v10/2UX7WLTfW3W8TclTUvlFyQ.woff) format('woff');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Roboto Bold'), local('Roboto-Bold'), url(http://themes.googleusercontent.com/static/fonts/roboto/v10/d-6IYplOFocCacKzxwXSOD8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+
+h1,h2,h3,p{
+    font-family: 'Roboto', sans-serif;
+}
 
 #canvasWrapper {
     position : relative;
@@ -14,6 +30,7 @@
     height : 600px;
     background-image: url("../Assets/Images/Level1Background.png");
 }
+
 #GameCanvas{
     position: absolute;
 }
@@ -34,11 +51,16 @@
 }
 
 #initialStuff input{
-    padding : 8px 12px;
+    padding : 9px 12px;
+    float : left;
 }
 
+.field-set{
+    width : 227px;
+    display : block;
+    margin : 0px auto;
+}
 #initialStuff input.button{
-
     background-color: #F06060;
     display: inline-block;
     color: #ffffff;
@@ -47,7 +69,6 @@
     font-family: 'Open Sans', sans-serif;
     text-decoration: none;
     text-align: center;
-    /*border-top: 1px solid #F06060;*/
     padding: 9px 15px;
     line-height : 16px;
 }
@@ -55,5 +76,11 @@
 #initialStuff input.button:hover, #initialStuff input.button:focus {
     cursor : pointer;
     background-color : #000;
-    /*border-top: 1px solid #F06060;*/
+
+}
+
+#titlePic{
+    position : absolute;
+    top : 25px;
+    left : 174px;
 }

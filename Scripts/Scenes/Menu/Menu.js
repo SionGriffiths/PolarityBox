@@ -66,7 +66,7 @@ var Menu = function(){
                     size = this.size*1.2;
                 }
 
-                context.font = size.toString() + "px Helvetica";
+                context.font = size.toString() + "px Roboto";
                 this.y += this.size + 20;
                 context.fillText(this.menuItems[i], canvas_width / 2, this.y);
                 context.fillStyle = "White";

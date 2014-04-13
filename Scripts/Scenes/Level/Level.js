@@ -35,7 +35,7 @@ var Level = function(){
         this.player.Init(game, this);
         this.player.PlayerSettings(300,375,25);
         hud = new Hud();
-        hud.Init(game, this)
+        hud.Init(game, this);
 
         //Initialise input handling
         levelInputHandler = new LevelInputHandler();

@@ -14,7 +14,7 @@ var LevelInputHandler = function(){
         var canvas_width = game.Settings.Canvas.width;
         var x = game.InputManager.mouseX;
         var y = game.InputManager.mouseY;
-        var buttons = game.InputManager.mouseButtons
+        var buttons = game.InputManager.mouseButtons;
         var keys = game.InputManager.keysDown;
 
         // Keyboard stuff

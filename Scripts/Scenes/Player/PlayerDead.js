@@ -27,9 +27,9 @@ var PlayerDead = function(){
 
     this.Render = function(){
         context.fillStyle = "#FFF";
-        context.font = "24pt Helvetica";
+        context.font = "24pt Roboto";
         context.fillText(message, game.Settings.Canvas.width/2, game.Settings.Canvas.height/2);
-        context.font = "18pt Helvetica";
+        context.font = "18pt Roboto";
         context.fillText("Click to retry", game.Settings.Canvas.width/2, game.Settings.Canvas.height/2+36);
 
     };
