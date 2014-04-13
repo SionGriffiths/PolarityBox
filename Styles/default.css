@@ -26,7 +26,7 @@
     height : 400px;
     margin : 0px auto;
     text-align: center;
-    padding :  200px 0px 0px  0px;
+    padding : 200px 0px 0px  0px;
 }
 
 #initialStuff h2 {
@@ -37,27 +37,23 @@
     padding : 8px 12px;
 }
 
+#initialStuff input.button{
 
-.button{
     background-color: #F06060;
     display: inline-block;
     color: #ffffff;
-    font-size: 0.71em;
+    font-size: 1em;
     font-weight: bold;
     font-family: 'Open Sans', sans-serif;
     text-decoration: none;
-    align-items: flex-start;
     text-align: center;
-    cursor: default;
-    border: 0;
-    margin: 6px 0;
-    /*padding: 0px 15px;*/
-    height: 30px;
-    /*float: left;*/
-    box-sizing: border-box;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
+    /*border-top: 1px solid #F06060;*/
+    padding: 9px 15px;
+    line-height : 16px;
+}
+
+#initialStuff input.button:hover, #initialStuff input.button:focus {
+    cursor : pointer;
+    background-color : #000;
+    /*border-top: 1px solid #F06060;*/
 }
