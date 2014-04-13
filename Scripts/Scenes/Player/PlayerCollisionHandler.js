@@ -33,11 +33,11 @@ var PlayerCollisionHandler = function(){
                 if(this.SafeSingleCollision(rect)){
                     // If its a safe map collision set player on 'floor'
                     player.SetOnFloor(rect.Y - player.Size);
-                    document.getElementById("debug2").innerHTML = "safe" + "</br>";
+
                 }else{
                     // Not safe!
                     if(rect.C != player.Colour){
-                        document.getElementById("debug2").innerHTML = "DIE!" + "</br>";
+
                         player.Die(); //ignore the collision
                     }
                 }
@@ -48,7 +48,7 @@ var PlayerCollisionHandler = function(){
                 if (this.SafeMultiCollision(currentCollisions)) {
                     // If its a safe map collision set player on 'floor'
                     player.SetOnFloor(currentCollisions[0].Y - player.Size); //set player on 'floor'
-                    document.getElementById("debug2").innerHTML = "safeMulti" + "</br>";
+
                 } else {
                     // TODO: Implement multi collision detection when not necessarily safe
 //                    for (var index = 0; index < currentCollisions.length; index++) {
@@ -59,7 +59,7 @@ var PlayerCollisionHandler = function(){
         }
         // No collisions, assume flying
         else{
-            document.getElementById("debug2").innerHTML = "in the air?" + "</br>";
+
         }
 
 

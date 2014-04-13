@@ -9,8 +9,7 @@ var LevelManager = function(){
     };
 
     this.LoadLevel = function(levelnumber){
-        switch (levelnumber)
-        {
+        switch (levelnumber){
             case 1:
                 console.log("Loading Level 1");
                 var level = new Level();

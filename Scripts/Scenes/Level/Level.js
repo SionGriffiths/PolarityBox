@@ -49,6 +49,7 @@ var Level = function(){
 
     // When the Level is updated
     this.Update = function (delta) {
+        document.getElementById("debug2").innerHTML = Math.floor(game.Settings.Fps) + "</br>";
         levelTime += delta;
         if(this.AssetsLoaded()) {
             if (levelTime > 200) {
@@ -85,7 +86,7 @@ var Level = function(){
             var context = game.Settings.Context;
             var canvas = game.Settings.Canvas;
             context.fillStyle = "#FFF";
-            context.font = "24pt Courier";
+            context.font = "24pt Helvetica";
             context.fillText("Click to begin", canvas.width/2, canvas.height/2);
         }
     };
