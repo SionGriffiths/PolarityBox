@@ -58,7 +58,7 @@ var Player = function(){
         playerCollisionHandler.Init(this, level);
         var self = this;
         game.ImageManager.LoadAsync("PlayerImage", "Assets/Images/PlayerSprite.png", function(){ self.Loaded = true; });
-        game.AudioManager.LoadAsync("JumpSound", "Assets/Sounds/jump.ogg", false); // Might want to add a callback!
+        game.AudioManager.LoadAsync("JumpSound", "Assets/Sounds/jump2.ogg", false); // Might want to add a callback!
         game.AudioManager.LoadAsync("DeathSound", "Assets/Sounds/death.ogg", false);
 
     };
@@ -139,7 +139,7 @@ var Player = function(){
     // Jump -- Duh.
     this.Jump = function(){
         if (!jumping) {
-            game.AudioManager.Sounds["JumpSound"].play();
+//            game.AudioManager.Sounds["JumpSound"].play();
             this.VelocityY =- jumpSpeed*2;
             jumping = true;
             playerAnimationHandler.FlipTransition();

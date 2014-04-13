@@ -4,6 +4,7 @@
     "Length" : 4600,
     "EndX" : 4000,
     "EndY" : 175,
+    "Music" : "Assets/Sounds/spz.mp3",
     "LevelImages" : [
         {"ID" : "Level1Background", "Src" : "Assets/Images/Level1Background.png" },
         {"ID" : "Level1Floor", "Src" : "Assets/Images/w2.png" },

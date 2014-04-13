@@ -83,7 +83,6 @@ var EnemyBlock = function(x, velXparam, floorHeight){
     };
 
     this.ChangeColour = function(){
-
         if(this.Colour == '#FFFFFF') {
             imageFrame++;
             if (imageFrame == 7) {

@@ -12,6 +12,7 @@ var Level = function(){
     var levelInputHandler = null;
     var levelTime = null;
     var hud = null;
+
     /* public functions */
 
     // Initialise which level file to use
@@ -22,7 +23,9 @@ var Level = function(){
 
     // When the Level is loaded
     this.onEnter = function (gameRef){
+
         game = gameRef;
+        game.AudioManager.StopAll();
         levelTime = 0;
         // Initialise Map Manager on Enter
         this.MapManager = new LevelMapManager();
@@ -41,6 +44,7 @@ var Level = function(){
         // Load Map
         this.MapManager.LoadMap(levelFile);
 
+
     };
 
     // When the Level is updated
@@ -55,6 +59,16 @@ var Level = function(){
                     this.playerScore = this.MapManager.Map.MapCanvasLocation;
                     hud.Update();
                 }
+//                if(this.MapManager.Loaded){
+//                    game.AudioManager.Sounds["levelMusic"].play();
+//                }
+                if(this.player.Status == "Dead"){
+                    console.log("Change state attempt");
+                    var deathScene = new PlayerDead();
+                    deathScene.Init(this, game, "You Died!");
+                    game.SceneManager.Push(deathScene);
+                }
+
             }
         }
 

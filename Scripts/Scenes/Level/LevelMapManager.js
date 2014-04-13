@@ -23,6 +23,13 @@ var LevelMapManager = function() {
         this.Map.Init(game);
     };
 
+    this.loadCallBack = function(){
+        elementsLoaded++;
+        if(elementsToLoad == elementsLoaded){
+            this.Loaded = true;
+        }
+    };
+
     // Loads Map from given location using Ajax
     this.LoadMap = function(mapLocation)
     {
@@ -35,7 +42,9 @@ var LevelMapManager = function() {
             self.Map.Length = mapData.Length;
             self.Map.LevelEndX = mapData.EndX;
             self.Map.LevelEndY = game.Settings.Canvas.height - mapData.EndY;
-            elementsToLoad = mapData.LevelImages.length;
+            elementsToLoad++;
+            game.AudioManager.LoadAsync("levelMusic", mapData.Music, self.loadCallBack());
+            elementsToLoad += mapData.LevelImages.length;
             // Read height map and convert to Y so box height is from bottom.
             $.each(mapData.HeightMap, function(i, item) {
                 self.Map.RenderMap.push({
@@ -65,10 +74,5 @@ var LevelMapManager = function() {
         });
     };
 
-    this.loadCallBack = function(){
-        elementsLoaded++;
-        if(elementsToLoad == elementsLoaded){
-            this.Loaded = true;
-        }
-    };
+
 };

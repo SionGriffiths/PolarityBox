@@ -9,7 +9,7 @@ var Menu = function(){
     var game = null;
     var menuInputHandler = null;
     var assetsLoaded = false;
-    var assetsToLoad = 2;
+    var assetsToLoad = 4;
     var imagesLoaded = 0;
     // TODO: Give these names that make sense
     this.menuItems = ["Play", "Help", "High Scores", "Credits"];
@@ -28,6 +28,10 @@ var Menu = function(){
         // Load Menu Assets
         game.ImageManager.LoadAsync("MenuBackground", "Assets/Images/Level1Background.png", this.loadCallback());
         game.ImageManager.LoadAsync("titlePic", "Assets/Images/title.png", this.loadCallback());
+        game.AudioManager.LoadAsync("selectSound", "Assets/Sounds/select.ogg", this.loadCallback()); // Might want to add a callback!
+        game.AudioManager.LoadAsync("confirmSound", "Assets/Sounds/confirm.ogg", this.loadCallback());
+        game.AudioManager.LoadAsync("menu", "Assets/Sounds/Pamgaea.mp3", this.loadCallback());
+
     };
 
     // When the Menu is updated
@@ -37,6 +41,7 @@ var Menu = function(){
 
         // Update player input events
         menuInputHandler.HandleInputs(delta);
+//        this.playMenuMusic();
     };
 
     // When the Menu is rendered (call after the update function
@@ -45,6 +50,9 @@ var Menu = function(){
         var canvas_width = game.Settings.Canvas.width;
         var canvas_height = game.Settings.Canvas.height;
         if(assetsLoaded) {
+
+
+
             context.drawImage(game.ImageManager.Images["MenuBackground"], 0, 0, canvas_width, canvas_height);
             context.drawImage(game.ImageManager.Images["titlePic"], ((canvas_width/2)-226), 25, 452, 50);
             context.textAlign = "center";
@@ -75,6 +83,12 @@ var Menu = function(){
         imagesLoaded++;
         if(imagesLoaded == assetsToLoad){
             assetsLoaded = true;
+        }
+    };
+
+    this.playMenuMusic =  function(){
+        if(assetsLoaded) {
+            game.AudioManager.Sounds["menu"].play();
         }
     };
 

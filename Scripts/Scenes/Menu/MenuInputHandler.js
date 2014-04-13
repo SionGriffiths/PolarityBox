@@ -17,7 +17,7 @@ var MenuInputHandler = function() {
         var canvas_width = game.Settings.Canvas.width;
         var x = game.InputManager.mouseX;
         var y = game.InputManager.mouseY;
-        var buttons = game.InputManager.mouseButtons
+        var buttons = game.InputManager.mouseButtons;
 
         // Update inputs on canvas to pick up where the mouse is
         if (x > canvas_width / 2 - 100 && x < canvas_width / 2 + 100) {
