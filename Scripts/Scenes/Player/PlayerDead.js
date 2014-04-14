@@ -26,12 +26,7 @@ var PlayerDead = function(){
     };
 
     this.Render = function(){
-        context.fillStyle = "#FFF";
-        context.font = "24pt Roboto";
-        context.fillText(message, game.Settings.Canvas.width/2, game.Settings.Canvas.height/2);
-        context.font = "18pt Roboto";
-        context.fillText("Click to retry", game.Settings.Canvas.width/2, game.Settings.Canvas.height/2+36);
-
+        game.SendToOverlay("<h2>You Died!</h2>  <h3>Click to retry</h3>");
     };
 
     this.onEnter = function(){

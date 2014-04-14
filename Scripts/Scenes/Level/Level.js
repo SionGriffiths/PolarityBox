@@ -60,7 +60,7 @@ var Level = function(){
                     this.player.Update(delta);
                     game.PlayerScore = this.MapManager.Map.MapCanvasLocation;
                     hud.Update();
-                    $('#overlay').hide();
+                    game.HideOverlay();
                 }
 //                if(this.MapManager.Loaded){
 //                    game.AudioManager.Sounds["levelMusic"].play();
@@ -91,8 +91,8 @@ var Level = function(){
 //            context.fillStyle = "#FFF";
 //            context.font = "24pt Helvetica";
 //            context.fillText("Click to begin", canvas.width/2, canvas.height/2);
-            document.getElementById("overlay").innerHTML = "<h2>Click to begin</h2>";
-            $('#overlay').show();
+//            document.getElementById("overlay").innerHTML = "<h2>Click to begin</h2>";
+           game.SendToOverlay("<h2>Click to begin</h2>");
         }
     };
 

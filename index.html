@@ -54,49 +54,48 @@
 
     $(document).ready(function() {
         $('#overlay').hide();
-        $('#playerNamebutton').click(function(){
-            if($('#nameInput').val()){
-                $('#initialStuff').hide();
-                $('#titlePic').hide();
-                // Get canvas variables for Game to draw to
-                $('#GameCanvas').show();
-                var canvas = document.getElementById('GameCanvas');
-                var context2d = canvas.getContext('2d');
 
-                // Create & Initialise Game
-                var game = new Game();
-                game.Init(canvas, context2d, $('#nameInput').val());
-                console.log(game.PlayerName);
-                // Start the Game & enter the game loop
-                game.StartGame();
-            }
-        });
+
+
+        // Get canvas variables for Game to draw to
+        $('#GameCanvas').show();
+        var canvas = document.getElementById('GameCanvas');
+        var context2d = canvas.getContext('2d');
+
+        // Create & Initialise Game
+        var game = new Game();
+        game.Init(canvas, context2d, $('#nameInput').val());
+        console.log(game.PlayerName);
+        // Start the Game & enter the game loop
+        game.StartGame();
+
     });
 
 </script>
-
+<!--$('#playerNamebutton').click(function(){-->
+<!--if($('#nameInput').val()){-->
 
 <div id="main">
     <div id="canvasWrapper">
-        <img id="titlePic" src="Assets/Images/title.png">
-        <div id="initialStuff">
-            <h2>Welcome, please enter a name:</h2>
-            <div class="field-set">
-                <input id="nameInput" type="text"  name="playerName" pattern="^[a-zA-Z]+$"
-                       title="Please enter a name" required auofocus>
-                <input type="button" value="OK" id="playerNamebutton" class="button">
-            </div>
-        </div>
         <div id="overlay"></div>
         <canvas id="GameCanvas" width="800" height="600" style="display: none">
             <p>Your browser does not support canvas.</p>
         </canvas>
-
-
     </div>
 </div>
 
 <div id="debug"></div>
 <div id="debug2"></div>
+<div id="hidden" style="display : none">
+    <div id="initialStuff">
+        <h2>Welcome, please enter a name:</h2>
+        <div class="field-set">
+            <input id="nameInput" type="text"  name="playerName" pattern="^[a-zA-Z]+$"
+                   title="Please enter a name" required auofocus>
+            <input type="button" value="OK" id="playerNamebutton" class="button">
+
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -12,6 +12,9 @@ var Game = function(){
     this.LevelNumber = 0;
     this.PlayerName = null;
     this.PlayerScore = 0;
+
+
+    var overlayCssSet = false;
     // Initialise the settings & managers
     this.Init = function (canvas, context, playerName) {
         // New up Managers
@@ -60,5 +63,34 @@ var Game = function(){
         this.Settings.Fps = (1 / delta) * 1000;
         this.SceneManager.Update(delta);
         this.SceneManager.Render();
+    };
+
+    this.SendToOverlay = function(message){
+
+
+        if(!overlayCssSet) {
+            document.getElementById("overlay").innerHTML = message;
+            $('#overlay').show();
+            var width = $('#overlay').width();
+            var height = $('#overlay').height();
+
+            console.log("Offsets :  w : " + width + " h : " + height);
+
+            var midX = this.Settings.Canvas.width/2;
+            var midY = this.Settings.Canvas.height/2;
+
+            midX -= width/2;
+            midY -= height/2;
+
+            $('#overlay').css("top", midY);
+            $('#overlay').css("left", midX);
+
+            overlayCssSet = true;
+        }
+    };
+
+    this.HideOverlay = function() {
+        $('#overlay').hide();
+        overlayCssSet = false;
     };
 };
