@@ -4,29 +4,37 @@
 
 var ScoreManager = function(){
 
-    this.Score = 0;
 
 
     var game;
-    var localScore;
-    var localStorage;
-    var level;
+    var localStore;
+    var levelNumber;
 
     this.Init = function(gameRef){
-      game = gameRef;
-        localStorage = window.localStorage;
+        game = gameRef;
+        localStore = window.localStorage;
     };
 
     this.CheckHighScore = function(){
-        level = game.LevelNumber.toString();
-        localScore = parseInt(localStorage.getItem(level));
-        if(this.Score > localScore){
-            localStorage.setItem(level, this.Score);
-            localStorage.setItem(level, this.PlayerName);
+        levelNumber = game.LevelNumber.toString();
+        var scoreJSON;
+        if(localStore.getItem(levelNumber) != null){
+            var temp = localStore.getItem(levelNumber);
+            scoreJSON = JSON.parse(temp);
+            if(game.PlayerScore > scoreJSON.highScore){
+                console.log(this.StoreAsJSON());
+                localStorage.setItem(levelNumber, this.StoreAsJSON());
+            }
+        }else{
+            console.log("New score from null " + game.PlayerName + game.PlayerScore);
+            localStorage.setItem(levelNumber, this.StoreAsJSON());
         }
     };
 
-
-
+    this.StoreAsJSON = function(){
+        return JSON.stringify({highScore : game.PlayerScore, name : game.PlayerName  });
+    };
 
 }
+
+//localStorage.setItem(levelNumber, this.StoreAsJSON());

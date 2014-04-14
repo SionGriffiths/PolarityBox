@@ -11,7 +11,7 @@ var Game = function(){
     this.ScoreManager = null;
     this.LevelNumber = 0;
     this.PlayerName = null;
-
+    this.PlayerScore = 0;
     // Initialise the settings & managers
     this.Init = function (canvas, context, playerName) {
         // New up Managers

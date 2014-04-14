@@ -5,7 +5,7 @@ var Level = function(){
     this.Name = null;
     this.MapManager = null;
     this.player = null;
-    this.playerScore = 0;
+
     /* private variables */
     var game = null;
     var levelFile = null;
@@ -26,6 +26,7 @@ var Level = function(){
 
         game = gameRef;
         game.AudioManager.StopAll();
+        game.PlayerScore = 0;
         levelTime = 0;
         // Initialise Map Manager on Enter
         this.MapManager = new LevelMapManager();
@@ -57,13 +58,14 @@ var Level = function(){
                 if (this.player.Ready && this.player.Status == "Alive") {
                     this.MapManager.Map.Update();
                     this.player.Update(delta);
-                    this.playerScore = this.MapManager.Map.MapCanvasLocation;
+                    game.PlayerScore = this.MapManager.Map.MapCanvasLocation;
                     hud.Update();
                 }
 //                if(this.MapManager.Loaded){
 //                    game.AudioManager.Sounds["levelMusic"].play();
 //                }
                 if(this.player.Status == "Dead"){
+                    game.ScoreManager.CheckHighScore();
                     console.log("Change state attempt");
                     var deathScene = new PlayerDead();
                     deathScene.Init(this, game, "You Died!");
