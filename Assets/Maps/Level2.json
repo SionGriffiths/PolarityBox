@@ -5,8 +5,8 @@
     "EndX" : 4000,
     "EndY" : 150,
     "LevelImages" : [
-        {"ID" : "Level2Background", "Src" : "Assets/Images/Level2Background.png" },
-        {"ID" : "Level2Floor", "Src" : "Assets/Images/Level2Floor.png" },
+        {"ID" : "Level2Background", "Src" : "Assets/Images/bg2.png" },
+        {"ID" : "Level2Floor", "Src" : "Assets/Images/tex2.png" },
         {"ID" : "EnemyBlockImage", "Src" : "Assets/Images/EnemySprite.png" },
         {"ID" : "Endgate", "Src" : "Assets/Images/EndGate.png"}
     ],

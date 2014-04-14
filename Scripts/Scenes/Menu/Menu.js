@@ -26,7 +26,7 @@ var Menu = function(){
         menuInputHandler.Init(this, game);
 
         // Load Menu Assets
-        game.ImageManager.LoadAsync("MenuBackground", "Assets/Images/Level1Background.png", this.loadCallback());
+        game.ImageManager.LoadAsync("MenuBackground", "Assets/Images/bg1.png", this.loadCallback());
         game.ImageManager.LoadAsync("titlePic", "Assets/Images/title.png", this.loadCallback());
         game.AudioManager.LoadAsync("selectSound", "Assets/Sounds/select.ogg", this.loadCallback()); // Might want to add a callback!
         game.AudioManager.LoadAsync("confirmSound", "Assets/Sounds/confirm.ogg", this.loadCallback());
@@ -50,8 +50,6 @@ var Menu = function(){
         var canvas_width = game.Settings.Canvas.width;
         var canvas_height = game.Settings.Canvas.height;
         if(assetsLoaded) {
-
-
 
             context.drawImage(game.ImageManager.Images["MenuBackground"], 0, 0, canvas_width, canvas_height);
             context.drawImage(game.ImageManager.Images["titlePic"], ((canvas_width/2)-226), 25, 452, 50);

@@ -34,7 +34,8 @@ var LevelMapManager = function() {
     this.LoadMap = function(mapLocation)
     {
         var self = this;
-
+        var enemyJumpRate;
+        var enemyColourRate;
 
         $.getJSON(mapLocation,  function(mapData) {
             self.Map.Name = mapData.Name;
@@ -42,6 +43,8 @@ var LevelMapManager = function() {
             self.Map.Length = mapData.Length;
             self.Map.LevelEndX = mapData.EndX;
             self.Map.LevelEndY = game.Settings.Canvas.height - mapData.EndY;
+            enemyColourRate = mapData.EnemyColourRate;
+            enemyJumpRate = mapData.EnemyJumpRate;
             elementsToLoad++;
             game.AudioManager.LoadAsync("levelMusic", mapData.Music, self.loadCallBack());
             elementsToLoad += mapData.LevelImages.length;
@@ -67,8 +70,9 @@ var LevelMapManager = function() {
             });
 
             $.each(mapData.EnemyBlocks, function(i, item){
-                var block = new EnemyBlock(item.X, -mapData.Speed, (game.Settings.Canvas.height - item.H));
-                block.Init(game);
+                var block = new EnemyBlock();
+                block.Init(game, item.X, -mapData.Speed,
+                    (game.Settings.Canvas.height - item.H), enemyJumpRate, enemyColourRate);
                 self.Map.EnemyList.push(block);
             });
         });

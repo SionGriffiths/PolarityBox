@@ -2,16 +2,16 @@
  * Created by pooey on 12/04/2014.
  */
 
-var EnemyBlock = function(x, velXparam, floorHeight){
+var EnemyBlock = function(){
 
-    this.Size = 25;
-    this.X = x;
-    this.Y = floorHeight - this.Size;
-    var floor = this.Y;
-    this.Colour = "#FFFFFF";
+    this.Size;
+    this.X;
+    this.Y ;
+   this.Colour = "#FFFFFF";
 
     var velY = 0;
-    var velX = velXparam;
+    var velX;
+    var floor;
     var jumpSpeed = 3;
     var enemyImageHeight = 51;
     var enemyImageWidth = 51;
@@ -19,15 +19,22 @@ var EnemyBlock = function(x, velXparam, floorHeight){
 
     var changingColour = false;
     var jumping = false;
+    var jumpRate;
+    var colourRate;
     var jumpSpeed = 3;
 
 
     var game = null;
 
-    this.Init = function(gameRef){
+    this.Init = function(gameRef, x, velXparam, floorHeight, jumprate, colourrate){
         game = gameRef;
-        game.ImageManager;
-
+        this.Size = 25;
+        this.X = x;
+        this.Y = floorHeight - this.Size;
+        floor = this.Y;
+        velX = velXparam;
+        jumpRate = jumprate;
+        colourRate = colourrate;
     };
 
     this.Update = function() {
@@ -41,10 +48,10 @@ var EnemyBlock = function(x, velXparam, floorHeight){
             jumping = false;
         }
 
-        if(Math.floor((Math.random()*1000)+1) < 50) {
+        if(Math.floor((Math.random()*1000)+1) < jumpRate) {
             this.DoColourChange();
         }
-        if(Math.floor((Math.random()*1000)+1) < 50) {
+        if(Math.floor((Math.random()*1000)+1) < colourRate) {
             this.Jump();
         }
     };
