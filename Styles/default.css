@@ -24,7 +24,6 @@ h1,h2,h3,p{
 #canvasWrapper {
     position : relative;
     display : block;
-
     margin : 0px auto;
     width : 800px;
     height : 600px;
@@ -32,9 +31,17 @@ h1,h2,h3,p{
 }
 
 #overlay{
-    position: relative;
+    position: absolute;
+    top : 300px;
+    left : 400px;
+    /*width : 200px;*/
+    /*height : 50px;*/
+    /*min-width: 50px;*/
+    /*min-height: 50px;*/
+    pointer-events:none;
+    color : #FFF;
     z-index: 2;
-
+    margin : 0px auto;
 }
 #GameCanvas {
     width: 800px;
