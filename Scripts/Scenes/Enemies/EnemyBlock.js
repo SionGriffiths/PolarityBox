@@ -26,7 +26,7 @@ var EnemyBlock = function(x, velXparam, floorHeight){
 
     this.Init = function(gameRef){
         game = gameRef;
-        game.ImageManager
+        game.ImageManager;
 
     };
 
@@ -101,5 +101,5 @@ var EnemyBlock = function(x, velXparam, floorHeight){
 
     this.Rect = function(){
         return {X : this.X, Y : this.Y, W: this.Size, H: this.size};
-    }
-}
+    };
+};

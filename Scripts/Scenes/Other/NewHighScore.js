@@ -14,15 +14,19 @@ var NewHighScore =  function(){
 
     this.Update = function(){
         console.log("Name? : " + game.NameEntered);
-        if(game.NameEntered){
+        if(game.NameEntered) {
             console.log('Button clicked');
             game.ScoreManager.SetHighScore();
             game.HideOverlay();
-            if(endOflevel){
-                game.LevelNumber++;
+            if (game.Settings.playerLives > 0) {
+                if (endOflevel) {
+                    game.LevelNumber++;
+                }
+                game.LevelManager.LoadLevel(game.LevelNumber);
+                game.NameEntered = false;
+            }else{
+                game.SceneManager.Pop();
             }
-            game.LevelManager.LoadLevel(game.LevelNumber);
-            game.NameEntered = false;
         }
     };
 

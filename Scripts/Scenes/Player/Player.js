@@ -169,7 +169,7 @@ var Player = function(){
         this.Y = floorHeight;
         this.VelocityY = 0;
         jumping = false;
-    }
+    };
 
     /* private functions */
 };

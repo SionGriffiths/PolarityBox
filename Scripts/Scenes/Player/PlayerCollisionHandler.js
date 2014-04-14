@@ -17,7 +17,7 @@ var PlayerCollisionHandler = function(){
         var currentCollisions = this.PlayerMapCollisions();
 
         if(this.isEndLevel()){
-           level.FinishedLevel();
+            level.FinishedLevel();
             return;
         }
 
@@ -54,10 +54,10 @@ var PlayerCollisionHandler = function(){
 
                 } else {
                     // TODO: Implement multi collision detection when not necessarily safe
-//                    for (var index = 0; index < currentCollisions.length; index++) {
+
                     player.Die();
                     return;
-//                    }
+
                 }
             }
         }
@@ -89,6 +89,7 @@ var PlayerCollisionHandler = function(){
     };
 
     //CERTIFIED WORKING METHOD MEIGHT.
+
     this.SafeSingleCollision = function(collisionRect){
 
         var playerLevelX = level.MapManager.Map.MapCanvasLocation + player.X;
@@ -107,6 +108,7 @@ var PlayerCollisionHandler = function(){
     };
 
     // Test to check whether the player is on a safe area of the map, takes rectangle array as input, player
+
     this.SafeMultiCollision = function(playerMapCollisions){
         if(playerMapCollisions.length > 1){
             var rect =  playerMapCollisions[0];
@@ -126,16 +128,17 @@ var PlayerCollisionHandler = function(){
         }
     };
 
+
     this.PlayerOnEnemyCollision = function() {
 
         var enemyList = level.MapManager.Map.EnemyList;
 
         for (var index = 0; index < enemyList.length; index++){
-             if((collision.boxIntersect(player.Rect(),  enemyList[index].Rect()) &&
+            if((collision.boxIntersect(player.Rect(),  enemyList[index].Rect()) &&
                 !collision.isSameColour(player.Colour, enemyList[index].Colour )) &&
-                 !collision.isHigher(enemyList[index].Y + enemyList[index].Size, player.Y)){
-                 return true;
-             }
+                !collision.isHigher(enemyList[index].Y + enemyList[index].Size, player.Y)){
+                return true;
+            }
         }
         return false;
     };

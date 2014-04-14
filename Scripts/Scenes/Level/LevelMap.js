@@ -106,6 +106,7 @@ var LevelMap = function(){
         return mapRects;
     };
 
+
     this.CurrentlyOnScreen = function(rect){
         return((rect.X >= this.MapCanvasLocation && rect.X <= this.MapCanvasLocation + game.Settings.Canvas.width)
             || (rect.X + rect.W  >= this.MapCanvasLocation && rect.X + rect.W <= this.MapCanvasLocation + game.Settings.Canvas.width )

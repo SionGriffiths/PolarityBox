@@ -20,12 +20,16 @@ var PlayerDead = function(){
 
     this.Update = function(){
         this.HandleInputs();
-
-        game.SendToOverlay("<h2>You Died!</h2>  <h3>Click to retry</h3>", false);
-
-        if(clicked){
-            game.LevelManager.LoadLevel(game.LevelNumber);
-            game.HideOverlay();
+        if(game.Settings.playerLives > 0) {
+            game.SendToOverlay("<h2>You Died!</h2>  <h3>Click to retry</h3>", false);
+            if (clicked) {
+                game.LevelManager.LoadLevel(game.LevelNumber);
+                game.HideOverlay();
+            }
+        }else{
+            var gameOver = new GameOver();
+            gameOver.Init(game);
+            game.SceneManager.Push(gameOver);
         }
     };
 
@@ -50,4 +54,4 @@ var PlayerDead = function(){
 
     };
 
-}
+};

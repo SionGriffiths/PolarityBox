@@ -3,7 +3,11 @@
 var Colours = {
 
     //From the book utils.
-      ColourToRGB : function(color, alpha){
+    /**
+     * @return {string}
+     * @return {string}
+     */
+    ColourToRGB : function(color, alpha){
         //number in octal format or string prefixed with #
         if (typeof color === 'string' && color[0] === '#') {
             color = window.parseInt(color.slice(1), 16);

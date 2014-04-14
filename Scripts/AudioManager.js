@@ -32,7 +32,10 @@ var AudioManager = function() {
     this.StopAll = function(){
         for (var key in this.Sounds) {
             this.Sounds[key].pause();
-            this.Sounds[key].currentTime - 0;
+            if(this.Sounds[key].readyState == "HAVE_CURRENT_DATA"){
+                this.Sounds[key].currentTime = 0;
+            }
+
         }
     };
 
