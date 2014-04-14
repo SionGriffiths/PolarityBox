@@ -13,7 +13,7 @@ var NewHighScore =  function(){
     };
 
     this.Update = function(){
-        console.log("Name? : " + game.NameEntered);
+
         if(game.NameEntered) {
             console.log('Button clicked');
             game.ScoreManager.SetHighScore();

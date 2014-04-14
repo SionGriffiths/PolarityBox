@@ -18,7 +18,7 @@ var GameOver = function(){
         var canvas = game.Settings.Canvas;
         context.fillStyle = "rgba(0, 0, 0, " + alpha + ")";
         context.fillRect(0,0, canvas.width, canvas.height);
-        game.SendToOverlay("<h1> Matjaz, your mum would do better<h1> <h2> Game over fuckface</h2>");
+        game.SendToOverlay("<h1> GAME OVER </h1>");
     };
 
     this.onEnter = function(){

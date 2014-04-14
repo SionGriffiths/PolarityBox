@@ -17,15 +17,9 @@ var ScoreManager = function(){
 
     };
 
-    /**
-     * @return {boolean}
-     */
     this.CheckHighScore = function(){
         levelNumber = game.LevelNumber.toString();
         scoreJSON = JSON.parse(localStore.getItem(levelNumber));
-        console.log("JSON SCORE : " + scoreJSON.highScore);
-        console.log("Player SCORE : " + game.PlayerScore);
-
         return (game.PlayerScore > scoreJSON.highScore);
 
     };
@@ -40,7 +34,7 @@ var ScoreManager = function(){
 
     this.InitScore = function(){
         levelNumber = game.LevelNumber.toString();
-//        localScoreObject = localStore.getItem(levelNumber);
+
         if(localStore.getItem(levelNumber) == null){
             JSON.stringify({highScore : 0, name : 'player'});
             localStorage.setItem(levelNumber, JSON.stringify({highScore : 0, name : 'player'}) );
@@ -48,4 +42,3 @@ var ScoreManager = function(){
     };
 };
 
-//localStorage.setItem(levelNumber, this.StoreAsJSON());
