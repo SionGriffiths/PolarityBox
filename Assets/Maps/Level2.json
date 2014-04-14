@@ -4,6 +4,8 @@
     "Length" : 4600,
     "EndX" : 4000,
     "EndY" : 150,
+    "EnemyJumpRate" : 20,
+    "EnemyColourRate" : 20,
     "LevelImages" : [
         {"ID" : "Level2Background", "Src" : "Assets/Images/bg2.png" },
         {"ID" : "Level2Floor", "Src" : "Assets/Images/tex2.png" },
@@ -34,6 +36,8 @@
         {"X" : 3333, "H" : 150},
         {"X" : 3750, "H" : 150},
         {"X" : 3850, "H" : 150}
+    ],
 
+    "Notifications" : [
     ]
 }

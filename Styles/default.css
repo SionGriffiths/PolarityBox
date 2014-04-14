@@ -44,6 +44,16 @@ h1,h2,h3,p{
     z-index: 2;
     margin : 0px auto;
 }
+
+#notify{
+    position: absolute;
+    top : 50px;
+    left : 400px;
+    pointer-events:none;
+    color : #FFF;
+    z-index: 2;
+    margin : 0px auto;
+}
 #GameCanvas {
     width: 800px;
     height: 600px;
@@ -53,7 +63,7 @@ h1,h2,h3,p{
 
 
 
-#initialStuff{
+#highScore{
     color: #FFF;
     position: relative;
     display: block;
@@ -64,11 +74,11 @@ h1,h2,h3,p{
     padding : 200px 0px 0px  0px;
 }
 
-#initialStuff h2 {
+#highScore h2 {
     margin: 0px 0px 15px 0px;
 }
 
-#initialStuff input{
+#overlay input{
     padding : 9px 12px;
     float : left;
 }
@@ -78,7 +88,7 @@ h1,h2,h3,p{
     display : block;
     margin : 0px auto;
 }
-#initialStuff input.button{
+#overlay input.button{
     background-color: #0DFFB8;
     display: inline-block;
     color: #ffffff;
@@ -91,7 +101,7 @@ h1,h2,h3,p{
     line-height : 16px;
 }
 
-#initialStuff input.button:hover, #initialStuff input.button:focus {
+#overlay input.button:hover, #overlay input.button:focus {
     cursor : pointer;
     background-color : #FF8200;
 

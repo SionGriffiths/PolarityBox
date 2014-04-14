@@ -75,6 +75,10 @@ var LevelMapManager = function() {
                     (game.Settings.Canvas.height - item.H), enemyJumpRate, enemyColourRate);
                 self.Map.EnemyList.push(block);
             });
+
+            $.each(mapData.Notifications, function(i, item){
+                self.Map.NotificationList.push(item);
+            });
         });
     };
 

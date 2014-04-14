@@ -5,8 +5,8 @@
     "EndX" : 5500,
     "EndY" : 226,
     "Music" : "Assets/Sounds/spz.mp3",
-    "EnemyJumpRate" : 5,
-    "EnemyColourRate" : 5,
+    "EnemyJumpRate" : 7,
+    "EnemyColourRate" : 7,
 
     "LevelImages" : [
         {"ID" : "Level1Background", "Src" : "Assets/Images/bg1.png" },
@@ -32,13 +32,27 @@
         { "X" : 5025, "H" : 225,"W" : 975 ,"C" : "#7D5DE8"},
 
 
-        {"X" : 2200, "H" : 600,"W" : 10 ,"C" : "#000000"},
-        {"X" : 2500, "H" : 600,"W" : 10 ,"C" : "#FFFFFF"}
+        {"X" : 2600, "H" : 600,"W" : 10 ,"C" : "#000000"},
+        {"X" : 2900, "H" : 600,"W" : 10 ,"C" : "#FFFFFF"}
 
 
     ],
 
     "EnemyBlocks" : [
         { "X" : 4500, "H" : 100}
+    ],
+
+    "Notifications" : [
+        {"X" : 100, "End" : 600, "Message" : "<h2> Left click to jump!</h2> <h3> Avoid walls</h3>"},
+        {"X" : 1100, "End" : 1400, "Message" : "<h2> Jump over gaps!</h2>"},
+        {"X" : 1500, "End" : 2600, "Message" : "<h2> Right Click to change colour</h2> <h3> You pass through objects of the same colour!  </h3>"},
+        {"X" : 2850, "End" : 3400, "Message" : "<h2> You pass through similar coloured floor too! </h2>"},
+        {"X" : 3600, "End" : 4500, "Message" : "<h2> Enemy blocks jump and change colour! GOD BE WITH YEEEEE! </h2>"},
+        {"X" : 4700, "End" : 5000, "Message" : "<h2> Jump in the gate to progress to the next level</h2>"}
+
     ]
+
+
+
+
 }

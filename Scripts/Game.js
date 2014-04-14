@@ -69,7 +69,7 @@ var Game = function(){
     this.SendToOverlay = function(message, canClick){
         if(!overlayCssSet) {
             document.getElementById("overlay").innerHTML = message;
-            $('#overlay').show();
+
 
             var width = $('#overlay').width();
             var height = $('#overlay').height();
@@ -89,12 +89,14 @@ var Game = function(){
             $('#overlay').css("left", midX);
 
             overlayCssSet = true;
+            $('#overlay').show();
         }
     };
 
     this.HideOverlay = function() {
-
         $('#overlay').hide();
         overlayCssSet = false;
     };
+
+
 };

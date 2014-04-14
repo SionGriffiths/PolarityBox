@@ -58,7 +58,7 @@ var Level = function(){
                     this.player.Update(delta);
                     game.PlayerScore = this.MapManager.Map.MapCanvasLocation;
                     hud.Update();
-
+                    this.SetNotification();
                 }
 //                if(this.MapManager.Loaded){
 //                    game.AudioManager.Sounds["levelMusic"].play();
@@ -117,4 +117,34 @@ var Level = function(){
     this.AssetsLoaded = function(){
         return (this.MapManager.Loaded && this.player.Loaded);
     };
+
+    this.SetNotification = function(){
+      for(var index = 0; index < this.MapManager.Map.NotificationList.length; index++){
+          var notify = this.MapManager.Map.NotificationList[index];
+
+          if(this.MapManager.Map.MapCanvasLocation == notify.X){
+              this.ShowNotification(notify.Message);
+          }
+          if(this.MapManager.Map.MapCanvasLocation == notify.End || this.player.Status != "Alive"){
+              this.HideNotification();
+          }
+      }
+    };
+
+    this.ShowNotification = function(message){
+        document.getElementById("notify").innerHTML = message;
+
+        var width = $('#notify').width();
+        var midX = game.Settings.Canvas.width/2;
+        midX -= width/2;
+        $('#notify').css("left", midX);
+        $('#notify').show();
+    }
+
+    this.HideNotification = function(){
+        $('#notify').hide();
+    };
+
+
+
 };

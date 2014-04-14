@@ -23,6 +23,8 @@ var LevelMap = function(){
     this.MapCanvasLocation = 0;
 
     this.EnemyList = [];
+    this.NotificationList = [];
+
     /* private variables */
 
 

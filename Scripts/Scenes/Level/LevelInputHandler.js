@@ -18,13 +18,13 @@ var LevelInputHandler = function(){
         var keys = game.InputManager.keysDown;
 
         // Keyboard stuff
-        if(!($.inArray(68, keys) == -1) && (!($.inArray(65, keys) == -1)))
-            level.player.VelocityX = 0;
-        else if(!($.inArray(68, keys) == -1))
-            level.player.VelocityX = 3;
-        else if(!($.inArray(65, keys) == -1))
-            level.player.VelocityX = -3;
-        else level.player.VelocityX = 0;
+//        if(!($.inArray(68, keys) == -1) && (!($.inArray(65, keys) == -1)))
+//            level.player.VelocityX = 0;
+//        else if(!($.inArray(68, keys) == -1))
+//            level.player.VelocityX = 3;
+//        else if(!($.inArray(65, keys) == -1))
+//            level.player.VelocityX = -3;
+//        else level.player.VelocityX = 0;
 
         if(!($.inArray(32, keys) == -1))
             level.player.Jump();
