@@ -12,11 +12,12 @@ var Game = function(){
     this.LevelNumber = 0;
     this.PlayerName = null;
     this.PlayerScore = 0;
+    this.NameEntered = false;
 
 
     var overlayCssSet = false;
     // Initialise the settings & managers
-    this.Init = function (canvas, context, playerName) {
+    this.Init = function (canvas, context) {
         // New up Managers
         this.Settings = new GlobalSettings();
         this.SceneManager = new SceneManager();
@@ -34,7 +35,7 @@ var Game = function(){
         this.InputManager.InitKeyboard(document);
         this.Settings.Canvas = canvas;
         this.Settings.Context = context;
-        this.PlayerName = playerName;
+
     };
 
     // Starts the game, and enters the game loop
@@ -65,22 +66,24 @@ var Game = function(){
         this.SceneManager.Render();
     };
 
-    this.SendToOverlay = function(message){
-
-
+    this.SendToOverlay = function(message, canClick){
         if(!overlayCssSet) {
             document.getElementById("overlay").innerHTML = message;
             $('#overlay').show();
+
             var width = $('#overlay').width();
             var height = $('#overlay').height();
-
-            console.log("Offsets :  w : " + width + " h : " + height);
 
             var midX = this.Settings.Canvas.width/2;
             var midY = this.Settings.Canvas.height/2;
 
             midX -= width/2;
             midY -= height/2;
+            if(canClick){
+                $('#overlay').css("pointer-events" , "auto");
+            }else{
+                $('#overlay').css("pointer-events" , "none");
+            }
 
             $('#overlay').css("top", midY);
             $('#overlay').css("left", midX);
@@ -90,6 +93,7 @@ var Game = function(){
     };
 
     this.HideOverlay = function() {
+
         $('#overlay').hide();
         overlayCssSet = false;
     };

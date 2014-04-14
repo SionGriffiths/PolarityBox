@@ -17,11 +17,13 @@ var PlayerCollisionHandler = function(){
         var currentCollisions = this.PlayerMapCollisions();
 
         if(this.isEndLevel()){
-            level.FinishedLevel();
+           level.FinishedLevel();
+            return;
         }
 
         if(this.PlayerOnEnemyCollision()){
             player.Die();
+            return;
         }
         // If collisions > 0 then we need to handle them
         if(currentCollisions.length > 0){
@@ -39,6 +41,7 @@ var PlayerCollisionHandler = function(){
                     if(rect.C != player.Colour){
 
                         player.Die(); //ignore the collision
+                        return;
                     }
                 }
 
@@ -53,6 +56,7 @@ var PlayerCollisionHandler = function(){
                     // TODO: Implement multi collision detection when not necessarily safe
 //                    for (var index = 0; index < currentCollisions.length; index++) {
                     player.Die();
+                    return;
 //                    }
                 }
             }

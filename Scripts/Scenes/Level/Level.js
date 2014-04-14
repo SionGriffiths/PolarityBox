@@ -44,8 +44,6 @@ var Level = function(){
         /* Load any assets for the game */
         // Load Map
         this.MapManager.LoadMap(levelFile);
-
-
     };
 
     // When the Level is updated
@@ -60,17 +58,21 @@ var Level = function(){
                     this.player.Update(delta);
                     game.PlayerScore = this.MapManager.Map.MapCanvasLocation;
                     hud.Update();
-                    game.HideOverlay();
+
                 }
 //                if(this.MapManager.Loaded){
 //                    game.AudioManager.Sounds["levelMusic"].play();
 //                }
                 if(this.player.Status == "Dead"){
-                    game.ScoreManager.CheckHighScore();
-                    console.log("Change state attempt");
-                    var deathScene = new PlayerDead();
-                    deathScene.Init(this, game, "You Died!");
-                    game.SceneManager.Push(deathScene);
+                    if(game.ScoreManager.CheckHighScore()){
+                        var scoreScene = new NewHighScore();
+                        scoreScene.Init(game, false);
+                        game.SceneManager.Push(scoreScene);
+                    }else {
+                        var deathScene = new PlayerDead();
+                        deathScene.Init(this, game, "You Died!");
+                        game.SceneManager.Push(deathScene);
+                    }
                 }
 
             }
@@ -86,19 +88,19 @@ var Level = function(){
             hud.Draw();
         }
         if(!this.player.Ready){
-//            var context = game.Settings.Context;
-//            var canvas = game.Settings.Canvas;
-//            context.fillStyle = "#FFF";
-//            context.font = "24pt Helvetica";
-//            context.fillText("Click to begin", canvas.width/2, canvas.height/2);
-//            document.getElementById("overlay").innerHTML = "<h2>Click to begin</h2>";
-           game.SendToOverlay("<h2>Click to begin</h2>");
+           game.SendToOverlay("<h2>Click to begin</h2>", false);
         }
     };
 
     this.FinishedLevel = function(){
-        game.LevelNumber++;
-        game.LevelManager.LoadLevel(game.LevelNumber);
+        if(game.ScoreManager.CheckHighScore()){
+            var scoreScene = new NewHighScore();
+            scoreScene.Init(game, true);
+            game.SceneManager.Push(scoreScene);
+        }else{
+            game.LevelNumber++;
+            game.LevelManager.LoadLevel(game.LevelNumber);
+        }
     };
 
     // Pause and unpause
@@ -109,7 +111,7 @@ var Level = function(){
     // When the Level is unloaded
     this.onExit  = function (){};
 
-    /* private functions */
+
 
     // Check to see if assets are loaded
     this.AssetsLoaded = function(){

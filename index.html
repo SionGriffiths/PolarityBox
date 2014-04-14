@@ -32,6 +32,9 @@
 
 <script src="Scripts/Scenes/Enemies/EnemyBlock.js" type="text/javascript"></script>
 
+<script src="Scripts/Scenes/Other/NewHighScore.js" type="text/javascript"></script>
+<script src="Scripts/Scenes/Other/GameOver.js" type="text/javascript"></script>
+
 <script src="Scripts/Scenes/Player/Player.js" type="text/javascript"></script>
 <script src="Scripts/Scenes/Player/PlayerAnimationHandler.js" type="text/javascript"></script>
 <script src="Scripts/Scenes/Player/PlayerCollisionHandler.js" type="text/javascript"></script>
@@ -50,6 +53,8 @@
     window.onload = function(){
         //disable right click context menu on canvas
         $('body').on('contextmenu', '#main', function(e){ return false; });
+
+
     };
 
     $(document).ready(function() {
@@ -64,7 +69,13 @@
 
         // Create & Initialise Game
         var game = new Game();
-        game.Init(canvas, context2d, $('#nameInput').val());
+        $('body').on('click','#playerNamebutton', function(e){
+            if($('#nameInput').val()){
+                game.PlayerName = $('#nameInput').val();
+                game.NameEntered = true;
+            }
+        });
+        game.Init(canvas, context2d);
         console.log(game.PlayerName);
         // Start the Game & enter the game loop
         game.StartGame();
@@ -87,8 +98,8 @@
 <div id="debug"></div>
 <div id="debug2"></div>
 <div id="hidden" style="display : none">
-    <div id="initialStuff">
-        <h2>Welcome, please enter a name:</h2>
+    <div id="highScore">
+        <h2>New High Score! Please enter a name:</h2>
         <div class="field-set">
             <input id="nameInput" type="text"  name="playerName" pattern="^[a-zA-Z]+$"
                    title="Please enter a name" required auofocus>

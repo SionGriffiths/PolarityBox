@@ -9,6 +9,7 @@ var LevelManager = function(){
     };
 
     this.LoadLevel = function(levelnumber){
+        game.ScoreManager.InitScore();
         switch (levelnumber){
             case 1:
                 console.log("Loading Level 1");
@@ -30,5 +31,6 @@ var LevelManager = function(){
                 console.log("Error Level" + levelnumber + " Not Defined");
                 break;
         }
+
     };
 };

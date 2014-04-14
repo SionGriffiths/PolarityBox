@@ -20,13 +20,16 @@ var PlayerDead = function(){
 
     this.Update = function(){
         this.HandleInputs();
+
+        game.SendToOverlay("<h2>You Died!</h2>  <h3>Click to retry</h3>", false);
+
         if(clicked){
             game.LevelManager.LoadLevel(game.LevelNumber);
+            game.HideOverlay();
         }
     };
 
     this.Render = function(){
-        game.SendToOverlay("<h2>You Died!</h2>  <h3>Click to retry</h3>");
     };
 
     this.onEnter = function(){
