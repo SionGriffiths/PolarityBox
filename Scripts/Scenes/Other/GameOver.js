@@ -10,7 +10,7 @@ var GameOver = function(){
     };
 
     this.Update = function(){
-        alpha++;
+        alpha+= 0.005;
     };
 
     this.Render = function(){
@@ -18,6 +18,7 @@ var GameOver = function(){
         var canvas = game.Settings.Canvas;
         context.fillStyle = "rgba(0, 0, 0, " + alpha + ")";
         context.fillRect(0,0, canvas.width, canvas.height);
+        game.SendToOverlay("<h1> Matjaz, your mum would do better<h1> <h2> Game over fuckface</h2>");
     };
 
     this.onEnter = function(){
