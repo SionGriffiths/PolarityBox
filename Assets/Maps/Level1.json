@@ -43,6 +43,7 @@
     ],
 
     "Notifications" : [
+
         {"X" : 100, "End" : 600, "Message" : "<h2> Left click to jump!</h2> <h3> Avoid walls</h3>"},
         {"X" : 1100, "End" : 1400, "Message" : "<h2> Jump over gaps!</h2>"},
         {"X" : 1500, "End" : 2600, "Message" : "<h2> Right Click to change colour</h2> <h3> You pass through objects of the same colour!  </h3>"},
