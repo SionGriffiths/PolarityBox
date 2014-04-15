@@ -15,7 +15,7 @@ var LevelManager = function(){
             case 1:
                 console.log("Loading Level 1");
                 level.Init("Assets/Maps/Level1.json");
-                this.SwitchScene();
+                this.SwitchScene(level);
                 break;
             case 2:
                 console.log("Loading Level 2");
