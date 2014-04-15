@@ -7,7 +7,7 @@ var EnemyBlock = function(){
     this.Size;
     this.X;
     this.Y ;
-   this.Colour = "#FFFFFF";
+    this.Colour = "#FFFFFF";
 
     var velY = 0;
     var velX;

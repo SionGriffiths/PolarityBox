@@ -32,6 +32,11 @@ var LevelManager = function(){
                 level.Init("Assets/Maps/Level4.json");
                 this.SwitchScene(level);
                 break;
+            case 5:
+                console.log("Loading Level 5");
+                level.Init("Assets/Maps/Level5.json");
+                this.SwitchScene(level);
+                break;
             default:
                 console.log("Error Level" + levelnumber + " Not Defined");
                 break;
