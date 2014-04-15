@@ -1,0 +1,25 @@
+{
+    "Name" : "Level 3",
+    "Speed" : 3,
+    "Length" : 4600,
+    "EndX" : 4000,
+    "EndY" : 200,
+    "Music" : "Assets/Sounds/spz.mp3",
+    "LevelImages" : [
+        {"ID" : "Level3Background", "Src" : "Assets/Images/bg3.png" },
+        {"ID" : "Level3Floor", "Src" : "Assets/Images/tex3.png" },
+        {"ID" : "EnemyBlockImage", "Src" : "Assets/Images/EnemySprite.png" },
+        {"ID" : "Endgate", "Src" : "Assets/Images/EndGate.png"}
+    ],
+    "HeightMap" : [
+        { "X" : 0, "H" : 200,"W" : 4600 ,"C" : "#34405b"}
+
+    ],
+
+    "EnemyBlocks" : [
+
+    ],
+
+    "Notifications" : [
+    ]
+}
