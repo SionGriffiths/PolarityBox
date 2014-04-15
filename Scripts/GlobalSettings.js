@@ -5,7 +5,7 @@ var GlobalSettings = function() {
     this.Canvas = null;
     this.Context = null;
     this.Fps = 0;
-    this.playerLives = 5;
+    this.playerLives = 10;
     // Timings
     this.LastUpdateTime = null;
 

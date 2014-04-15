@@ -10,35 +10,38 @@ var LevelManager = function(){
 
     this.LoadLevel = function(levelnumber){
         game.ScoreManager.InitScore();
+        var level = new Level();
         switch (levelnumber){
             case 1:
                 console.log("Loading Level 1");
-                var level = new Level();
                 level.Init("Assets/Maps/Level1.json");
-                game.AudioManager.StopAll();
-                game.SceneManager.Pop();
-                game.SceneManager.Push(level);
+                this.SwitchScene();
                 break;
             case 2:
                 console.log("Loading Level 2");
-                var level = new Level();
                 level.Init("Assets/Maps/Level2.json");
-                game.AudioManager.StopAll();
-                game.SceneManager.Pop();
-                game.SceneManager.Push(level);
+                this.SwitchScene(level);
                 break;
             case 3:
                 console.log("Loading Level 3");
-                var level = new Level();
                 level.Init("Assets/Maps/Level3.json");
-                game.AudioManager.StopAll();
-                game.SceneManager.Pop();
-                game.SceneManager.Push(level);
+                this.SwitchScene(level);
+                break;
+            case 4:
+                console.log("Loading Level 4");
+                level.Init("Assets/Maps/Level4.json");
+                this.SwitchScene(level);
                 break;
             default:
                 console.log("Error Level" + levelnumber + " Not Defined");
                 break;
         }
 
+    };
+
+    this.SwitchScene = function(level){
+        game.AudioManager.StopAll();
+        game.SceneManager.Pop();
+        game.SceneManager.Push(level);
     };
 };
