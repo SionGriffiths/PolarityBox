@@ -43,7 +43,7 @@ var MenuInputHandler = function() {
                 if(!loading)
                 {
                     loading = true;
-                    game.LevelNumber++;
+                    game.LevelNumber = 6;
                     game.LevelManager.LoadLevel(game.LevelNumber);
                 }
             }

@@ -57,9 +57,10 @@ var Player = function(){
         playerCollisionHandler = new PlayerCollisionHandler();
         playerCollisionHandler.Init(this, level);
         var self = this;
-        game.ImageManager.LoadAsync("PlayerImage", "Assets/Images/PlayerSprite.png", function(){ self.Loaded = true; });
         game.AudioManager.LoadAsync("JumpSound", "Assets/Sounds/jump2.ogg", false); // Might want to add a callback!
         game.AudioManager.LoadAsync("DeathSound", "Assets/Sounds/death.ogg", false);
+        game.ImageManager.LoadAsync("PlayerImage", "Assets/Images/PlayerSprite.png", function(){ self.Loaded = true; });
+
 
     };
 

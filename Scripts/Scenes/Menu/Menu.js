@@ -20,7 +20,8 @@ var Menu = function(){
     this.onEnter = function (gameRef){
         // Store local game reference
         game = gameRef;
-
+        //Hide overlay text if any
+        game.HideOverlay();
         // Create and Init Menu Input Handler
         menuInputHandler = new MenuInputHandler();
         menuInputHandler.Init(this, game);

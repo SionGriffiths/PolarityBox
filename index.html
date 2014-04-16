@@ -34,6 +34,7 @@
 
 <script src="Scripts/Scenes/Other/NewHighScore.js" type="text/javascript"></script>
 <script src="Scripts/Scenes/Other/GameOver.js" type="text/javascript"></script>
+<script src="Scripts/Scenes/Other/GameComplete.js" type="text/javascript"></script>
 
 <script src="Scripts/Scenes/Player/Player.js" type="text/javascript"></script>
 <script src="Scripts/Scenes/Player/PlayerAnimationHandler.js" type="text/javascript"></script>
@@ -53,20 +54,14 @@
     window.onload = function(){
         //disable right click context menu on canvas
         $('body').on('contextmenu', '#main', function(e){ return false; });
-
-
     };
 
     $(document).ready(function() {
         $('#overlay').hide();
-
-
-
         // Get canvas variables for Game to draw to
         $('#GameCanvas').show();
         var canvas = document.getElementById('GameCanvas');
         var context2d = canvas.getContext('2d');
-
         // Create & Initialise Game
         var game = new Game();
         $('body').on('click','#playerNamebutton', function(e){

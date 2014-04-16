@@ -10,6 +10,7 @@ var LevelManager = function(){
 
     this.LoadLevel = function(levelnumber){
         game.ScoreManager.InitScore();
+        game.InputManager.ClearMouse();
         var level = new Level();
         switch (levelnumber){
             case 1:
@@ -37,6 +38,15 @@ var LevelManager = function(){
                 level.Init("Assets/Maps/Level5.json");
                 this.SwitchScene(level);
                 break;
+            case 6:
+//                console.log("Loading Level 6");
+//                level.Init("Assets/Maps/Level6.json");
+//                this.SwitchScene(level);
+                console.log("WINRAR");
+               var finish = new GameComplete();
+                finish.Init(game);
+                this.SwitchScene(finish);
+                break;
             default:
                 console.log("Error Level" + levelnumber + " Not Defined");
                 break;
@@ -44,9 +54,9 @@ var LevelManager = function(){
 
     };
 
-    this.SwitchScene = function(level){
+    this.SwitchScene = function(scene){
         game.AudioManager.StopAll();
         game.SceneManager.Pop();
-        game.SceneManager.Push(level);
+        game.SceneManager.Push(scene);
     };
 };

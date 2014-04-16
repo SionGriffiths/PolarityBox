@@ -62,5 +62,9 @@ var InputManager = function() {
                 }
             }
         }, false);
-    }
+    };
+
+    this.ClearMouse = function(){
+        mouseButtons = [];
+    };
 };

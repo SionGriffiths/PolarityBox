@@ -1,0 +1,31 @@
+{
+    "Name" : "Level 5",
+    "Speed" : 4,
+    "Length" : 6500,
+    "EndX" : 6030,
+    "EndY" : 325,
+    "EnemyJumpRate" : 15,
+    "EnemyColourRate" : 15,
+    "Music" : "Assets/Sounds/spz.mp3",
+    "LevelImages" : [
+        {"ID" : "Level4Background", "Src" : "Assets/Images/bg6.png" },
+        {"ID" : "Level4Floor", "Src" : "Assets/Images/tex2.png" },
+        {"ID" : "EnemyBlockImage", "Src" : "Assets/Images/EnemySprite.png" },
+        {"ID" : "Endgate", "Src" : "Assets/Images/EndGate.png"}
+    ],
+    "HeightMap" : [
+        { "X" : 0, "H" : 200,"W" : 1200,"C" : "#BDF271"},
+        { "X" : 1200, "H" : 200,"W" : 1200,"C" : "#FFFFA6"}
+
+
+
+    ],
+
+    "EnemyBlocks" : [
+        { "X" : 2025, "H" : 75}
+
+    ],
+
+    "Notifications" : [
+    ]
+}
