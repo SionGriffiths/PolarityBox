@@ -125,9 +125,12 @@ nav li{
 }
 
 #about a{
-
+    color : #FFF;
 }
 
+#about a:hover{
+    color : #CCC;
+}
 
 
 
