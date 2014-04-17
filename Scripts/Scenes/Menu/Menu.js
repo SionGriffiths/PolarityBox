@@ -32,7 +32,7 @@ var Menu = function(){
         game.ImageManager.LoadAsync("titlePic", "Assets/Images/title.png", this.loadCallback());
         game.AudioManager.LoadAsync("selectSound", "Assets/Sounds/select.ogg", this.loadCallback()); // Might want to add a callback!
         game.AudioManager.LoadAsync("confirmSound", "Assets/Sounds/confirm.ogg", this.loadCallback());
-//        game.AudioManager.LoadAsync("menu", "Assets/Sounds/Pamgaea.mp3", this.loadCallback());
+
 
     };
 
