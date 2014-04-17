@@ -30,6 +30,10 @@ var LevelInputHandler = function(){
             level.player.Jump();
         }
 
+        if(!($.inArray(83, keys) == -1)) {
+            level.player.ChangeColour();
+        }
+
         // Mouse stuff
         if(!($.inArray(1, buttons) == -1)) // Left Click
         {
