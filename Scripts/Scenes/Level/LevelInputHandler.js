@@ -26,8 +26,9 @@ var LevelInputHandler = function(){
 //            level.player.VelocityX = -3;
 //        else level.player.VelocityX = 0;
 
-        if(!($.inArray(32, keys) == -1))
+        if(!($.inArray(32, keys) == -1)) {
             level.player.Jump();
+        }
 
         // Mouse stuff
         if(!($.inArray(1, buttons) == -1)) // Left Click

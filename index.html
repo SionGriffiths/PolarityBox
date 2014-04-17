@@ -6,6 +6,7 @@
     <!--<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>-->
     <title>PolarityBox</title>
 </head>
+
 <body>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -59,8 +60,14 @@
 
     $(document).ready(function() {
         $('#overlay').hide();
+        $('#aboutButton').click(function(){
+            $('#about').slideDown();
+        });
+        $('#gameButton').click(function(){
+            $('#about').slideUp();
+        });
         // Get canvas variables for Game to draw to
-        $('#GameCanvas').show();
+
         var canvas = document.getElementById('GameCanvas');
         var context2d = canvas.getContext('2d');
         // Create & Initialise Game
@@ -78,17 +85,35 @@
     });
 
 </script>
-<!--$('#playerNamebutton').click(function(){-->
-<!--if($('#nameInput').val()){-->
 
+<div id="headerBar">
+    <nav>
+        <ul id="links">
+            <li><a id="gameButton" href="#">Game</a> </li>
+            <li><a id="aboutButton" href="#" >About</a></li>
+
+        </ul>
+    </nav>
+</div>
 <div id="main">
+
     <div id="canvasWrapper">
-        <div id="overlay"></div>
-        <div id="notify"></div>
-        <canvas id="GameCanvas" width="800" height="600" style="display: none">
+
+        <div id="about">
+            ze about
+        </div>
+
+        <div id="overlay" class="inGame"></div>
+
+        <div id="notify" class="inGame"></div>
+
+        <canvas id="GameCanvas" width="800" height="600">
             <p>Your browser does not support canvas.</p>
         </canvas>
+
     </div>
+
+
 </div>
 
 <div id="hidden" style="display : none">

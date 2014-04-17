@@ -17,7 +17,7 @@
     src: local('Roboto Bold'), local('Roboto-Bold'), url(http://themes.googleusercontent.com/static/fonts/roboto/v10/d-6IYplOFocCacKzxwXSOD8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
 }
 
-h1,h2,h3,p, th, td{
+.inGame h1,.inGame h2,.inGame h3,.inGame p,.inGame th,.inGame td{
     text-align : center;
     font-family: 'Roboto', sans-serif;
     text-shadow:
@@ -27,6 +27,45 @@ h1,h2,h3,p, th, td{
     1px 1px 0 #000;
 }
 
+body{
+    background-color : #cccccc;
+}
+#headerBar{
+    width: 100%;
+    height: 40px;
+    background-color : #000640;
+}
+nav{
+    margin: 0 auto;
+    width: 800px;
+}
+
+nav a {
+    float: left;
+    color: #FFF;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    padding: 10px 10px;
+}
+nav a:hover{
+    color : #09A4B8;
+
+}
+nav ul{
+    list-style-type: none;
+    /*margin: 0 25px;*/
+}
+nav li{
+    float: left;
+
+}
+#main{
+    border-top: Solid 1px rgba(9,164,184,.4);
+    background-color : #cccccc;
+}
+
+
 #canvasWrapper {
     position : relative;
     display : block;
@@ -34,6 +73,9 @@ h1,h2,h3,p, th, td{
     width : 800px;
     height : 600px;
     background-image: url("../Assets/Images/bg1.png");
+    border-left: Solid 2px rgba(9,164,184,.4);
+    border-right: Solid 2px rgba(9,164,184,.4);
+    border-bottom: Solid 1px rgba(9,164,184,.4);
 }
 
 #overlay{
@@ -61,6 +103,15 @@ h1,h2,h3,p, th, td{
     position: absolute;
     z-index: 1;
  }
+#about{
+    position: absolute;
+    width: 800px;
+    height: 600px;
+    background-color: white;
+    z-index: 999;
+    display : none;
+}
+
 
 
 
