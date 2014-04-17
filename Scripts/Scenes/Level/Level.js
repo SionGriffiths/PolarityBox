@@ -88,7 +88,7 @@ var Level = function(){
             hud.Draw();
         }
         if(!this.player.Ready){
-           game.SendToOverlay("<h2>Click to begin</h2>", false);
+           game.SendToOverlay("<h2>Level "+ game.LevelNumber + "</h2><h3>Click to begin</h3>", false);
         }
     };
 

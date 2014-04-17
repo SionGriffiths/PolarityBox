@@ -11,8 +11,9 @@ var Menu = function(){
     var assetsLoaded = false;
     var assetsToLoad = 4;
     var imagesLoaded = 0;
+    var sceneTime = 0;
     // TODO: Give these names that make sense
-    this.menuItems = ["Play", "Help", "High Scores", "Credits"];
+    this.menuItems = ["Play",  "High Scores"];
     this.y = 200;
     this.size = 24;
 
@@ -31,7 +32,7 @@ var Menu = function(){
         game.ImageManager.LoadAsync("titlePic", "Assets/Images/title.png", this.loadCallback());
         game.AudioManager.LoadAsync("selectSound", "Assets/Sounds/select.ogg", this.loadCallback()); // Might want to add a callback!
         game.AudioManager.LoadAsync("confirmSound", "Assets/Sounds/confirm.ogg", this.loadCallback());
-        game.AudioManager.LoadAsync("menu", "Assets/Sounds/Pamgaea.mp3", this.loadCallback());
+//        game.AudioManager.LoadAsync("menu", "Assets/Sounds/Pamgaea.mp3", this.loadCallback());
 
     };
 
@@ -40,8 +41,11 @@ var Menu = function(){
         // Update moving items on the menu
         // TODO: Make the menu move and look awesomeness
 
+        sceneTime += delta;
         // Update player input events
-        menuInputHandler.HandleInputs(delta);
+        if(sceneTime > 100) {
+            menuInputHandler.HandleInputs(delta);
+        }
 //        this.playMenuMusic();
     };
 

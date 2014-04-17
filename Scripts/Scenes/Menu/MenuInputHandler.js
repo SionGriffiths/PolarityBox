@@ -25,10 +25,6 @@ var MenuInputHandler = function() {
                 menu.SelectedItem = 0;
             } else if (y >= 256 && y < 300) {
                 menu.SelectedItem = 1;
-            } else if (y >= 300 && y < 345) {
-                menu.SelectedItem = 2;
-            } else if (y >= 345 && y < 385) {
-                menu.SelectedItem = 3;
             } else {
                 menu.SelectedItem = null;
             }
@@ -40,11 +36,18 @@ var MenuInputHandler = function() {
         if(!($.inArray(1, buttons) == -1)) // Left Click
         {
             if(menu.SelectedItem == 0){
-                if(!loading)
-                {
+                if(!loading){
                     loading = true;
-                    game.LevelNumber = 6;
+                    game.LevelNumber++;
                     game.LevelManager.LoadLevel(game.LevelNumber);
+                }
+            }
+            if(menu.SelectedItem == 1){
+                if(!loading){
+                    loading = true;
+                    var scoreScene = new AllHighScores();
+                    scoreScene.Init(game, game.ScoreManager.GetAllScores());
+                    game.SceneManager.Push(scoreScene);
                 }
             }
         }

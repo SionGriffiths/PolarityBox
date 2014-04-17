@@ -20,6 +20,7 @@ var SceneManager = function () {
     this.Push = function (scene) {
         scenes.push(scene);
         scene.onEnter(game);
+
     };
 
     // Pop from stack and exit scene

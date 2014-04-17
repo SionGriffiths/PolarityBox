@@ -17,7 +17,8 @@
     src: local('Roboto Bold'), local('Roboto-Bold'), url(http://themes.googleusercontent.com/static/fonts/roboto/v10/d-6IYplOFocCacKzxwXSOD8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
 }
 
-h1,h2,h3,p{
+h1,h2,h3,p, th, td{
+    text-align : center;
     font-family: 'Roboto', sans-serif;
     text-shadow:
     -1px -1px 0 #000,

@@ -40,5 +40,14 @@ var ScoreManager = function(){
             localStorage.setItem(levelNumber, JSON.stringify({highScore : 0, name : 'player'}) );
         }
     };
+
+    this.GetAllScores = function(){
+        var scoreList = [];
+        for(var index = 1; index <= 5; index++){
+            var score = localStore.getItem(index);
+                scoreList.push(score);
+        }
+        return scoreList;
+    }
 };
 
