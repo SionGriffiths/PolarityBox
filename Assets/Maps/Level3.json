@@ -6,7 +6,7 @@
     "EndY" : 200,
     "EnemyJumpRate" : 15,
     "EnemyColourRate" : 15,
-    "Music" : "Assets/Sounds/spz.mp3",
+    "Music" : "",
     "LevelImages" : [
         {"ID" : "Level3Background", "Src" : "Assets/Images/bg3.png" },
         {"ID" : "Level3Floor", "Src" : "Assets/Images/tex3.png" },

@@ -48,7 +48,6 @@ var Level = function(){
 
     // When the Level is updated
     this.Update = function (delta) {
-        document.getElementById("debug2").innerHTML = Math.floor(game.Settings.Fps) + "</br>";
         levelTime += delta;
         if(this.AssetsLoaded()) {
             if (levelTime > 200) {
@@ -88,7 +87,7 @@ var Level = function(){
             hud.Draw();
         }
         if(!this.player.Ready){
-           game.SendToOverlay("<h2>Level "+ game.LevelNumber + "</h2><h3>Click to begin</h3>", false);
+            game.SendToOverlay("<h2>Level "+ game.LevelNumber + "</h2><h3>Click to begin</h3>", false);
         }
     };
 
@@ -119,16 +118,16 @@ var Level = function(){
     };
 
     this.SetNotification = function(){
-      for(var index = 0; index < this.MapManager.Map.NotificationList.length; index++){
-          var notify = this.MapManager.Map.NotificationList[index];
+        for(var index = 0; index < this.MapManager.Map.NotificationList.length; index++){
+            var notify = this.MapManager.Map.NotificationList[index];
 
-          if(this.MapManager.Map.MapCanvasLocation == notify.X){
-              this.ShowNotification(notify.Message);
-          }
-          if(this.MapManager.Map.MapCanvasLocation == notify.End || this.player.Status != "Alive"){
-              this.HideNotification();
-          }
-      }
+            if(this.MapManager.Map.MapCanvasLocation == notify.X){
+                this.ShowNotification(notify.Message);
+            }
+            if(this.MapManager.Map.MapCanvasLocation == notify.End || this.player.Status != "Alive"){
+                this.HideNotification();
+            }
+        }
     };
 
     this.ShowNotification = function(message){
