@@ -35,7 +35,6 @@ var AudioManager = function() {
             if(this.Sounds[key].readyState == "HAVE_CURRENT_DATA"){
                 this.Sounds[key].currentTime = 0;
             }
-
         }
     };
 

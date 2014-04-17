@@ -21,6 +21,7 @@ var PlayerAnimationHandler = function(){
     this.Init = function(playerRef, gameref){
         player = playerRef;
         game = gameref;
+
     };
 
 
@@ -42,10 +43,17 @@ var PlayerAnimationHandler = function(){
         if(flipTime - lastFlipTime > 200) {
             animatingColourTransition = true;
             lastFlipTime = Date.now();
-            if (window.chrome) {
-                game.AudioManager.LoadAsync("switch", "Assets/Sounds/swish.wav", false);
+            if(game.AudioManager.Sounds["switch"].paused && game.AudioManager.Sounds["switch"].duration > 0) {
+                if (window.chrome) {
+                    game.AudioManager.LoadAsync("switch", "Assets/Sounds/swish.wav", false);
+                }
+                game.AudioManager.Sounds["switch"].play();
+            }else{
+                if (window.chrome) {
+                    game.AudioManager.LoadAsync("switch2", "Assets/Sounds/swish.wav", false);
+                }
+                game.AudioManager.Sounds["switch2"].play();
             }
-            game.AudioManager.Sounds["switch"].play();
         }
     };
 

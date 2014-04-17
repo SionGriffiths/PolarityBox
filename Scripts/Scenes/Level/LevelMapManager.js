@@ -13,7 +13,7 @@ var LevelMapManager = function() {
     var game = null;
 
     //Image loading
-    var elementsToLoad = 0;
+    var elementsToLoad = 5;
     var elementsLoaded = 0;
 
     // Initialise the Map Manager Handlers
@@ -25,6 +25,7 @@ var LevelMapManager = function() {
 
     this.loadCallBack = function(){
         elementsLoaded++;
+        console.log("ToLoad : " + elementsToLoad + " Loaded : " + elementsLoaded);
         if(elementsToLoad == elementsLoaded){
             this.Loaded = true;
         }
@@ -45,9 +46,9 @@ var LevelMapManager = function() {
             self.Map.LevelEndY = game.Settings.Canvas.height - mapData.EndY;
             enemyColourRate = mapData.EnemyColourRate;
             enemyJumpRate = mapData.EnemyJumpRate;
-            elementsToLoad++;
+//            elementsToLoad++;
             game.AudioManager.LoadAsync("levelMusic", mapData.Music, self.loadCallBack());
-            elementsToLoad += mapData.LevelImages.length;
+//            elementsToLoad += mapData.LevelImages.length;
             // Read height map and convert to Y so box height is from bottom.
             $.each(mapData.HeightMap, function(i, item) {
                 self.Map.RenderMap.push({
@@ -60,6 +61,7 @@ var LevelMapManager = function() {
             });
 
             $.each(mapData.LevelImages, function(i, item){
+
                 if(Strings.Contains(item.ID, "Background")){
                     self.Map.BackgroundName = item.ID;
                 }

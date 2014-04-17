@@ -18,7 +18,6 @@ var Level = function(){
     // Initialise which level file to use
     this.Init = function (levelFileLocation){
         levelFile = levelFileLocation;
-
     };
 
     // When the Level is loaded
@@ -82,9 +81,11 @@ var Level = function(){
     // When the Level is rendered (call after the update function)
     this.Render  = function () {
         if(this.AssetsLoaded()){
-            this.MapManager.Map.Draw();
-            this.player.Draw();
-            hud.Draw();
+            if(this.MapManager.Loaded) {
+                this.MapManager.Map.Draw();
+                this.player.Draw();
+                hud.Draw();
+            }
         }
         if(!this.player.Ready){
             game.SendToOverlay("<h2>Level "+ game.LevelNumber + "</h2><h3>Click to begin</h3>", false);
