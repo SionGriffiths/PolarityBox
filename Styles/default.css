@@ -107,9 +107,25 @@ nav li{
     position: absolute;
     width: 800px;
     height: 600px;
-    background-color: white;
+
+    background-image: url("../Assets/Images/bg1.png");
     z-index: 999;
     display : none;
+}
+
+#about h1, #about h3, #about p{
+    text-align : center;
+    font-family: 'Roboto', sans-serif;
+    color : #FFF;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+#about a{
+
 }
 
 

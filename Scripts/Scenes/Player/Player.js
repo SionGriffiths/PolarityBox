@@ -53,12 +53,13 @@ var Player = function(){
         game = gameRef;
         level = levelRef;
         playerAnimationHandler = new PlayerAnimationHandler();
-        playerAnimationHandler.Init(this);
+        playerAnimationHandler.Init(this, game);
         playerCollisionHandler = new PlayerCollisionHandler();
         playerCollisionHandler.Init(this, level);
         var self = this;
-        game.AudioManager.LoadAsync("JumpSound", "Assets/Sounds/jump2.ogg", false); // Might want to add a callback!
+        game.AudioManager.LoadAsync("JumpSound", "Assets/Sounds/Jump.wav", false); // Might want to add a callback!
         game.AudioManager.LoadAsync("DeathSound", "Assets/Sounds/death.ogg", false);
+        game.AudioManager.LoadAsync("switch", "Assets/Sounds/swish.wav", false)
         game.ImageManager.LoadAsync("PlayerImage", "Assets/Images/PlayerSprite.png", function(){ self.Loaded = true; });
 
 
@@ -135,20 +136,23 @@ var Player = function(){
     // Swap player colour
     this.ChangeColour = function(){
         playerAnimationHandler.ColourTransition(Date.now());
+
     };
 
-    // Jump -- Duh.
+    // Jump.
     this.Jump = function(){
         if (!jumping) {
-//            game.AudioManager.Sounds["JumpSound"].play();
             this.VelocityY =- jumpSpeed*2;
             jumping = true;
             playerAnimationHandler.FlipTransition();
+            if (window.chrome) {
+                game.AudioManager.LoadAsync("JumpSound", "Assets/Sounds/Jump.wav", false);
+            }
+            game.AudioManager.Sounds["JumpSound"].play();
         }
     };
 
     this.Die = function(){
-
         if(this.Status == "Alive") {
             game.Settings.playerLives--;
             level.playerScore -= level.MapManager.Map.LevelEndX;
@@ -157,7 +161,6 @@ var Player = function(){
             var timeOfDeath = Date.now();
             playerAnimationHandler.DeathTransition(emitter, timeOfDeath);
             game.AudioManager.Sounds["DeathSound"].play();
-
         }
     };
 
