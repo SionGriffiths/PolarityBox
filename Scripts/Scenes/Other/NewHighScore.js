@@ -15,7 +15,7 @@ var NewHighScore =  function(){
     this.Update = function(){
 
         if(game.NameEntered) {
-            console.log('Button clicked');
+
             game.ScoreManager.SetHighScore();
             game.HideOverlay();
             if (game.Settings.playerLives > 0) {
@@ -34,7 +34,7 @@ var NewHighScore =  function(){
     };
 
     this.onEnter = function(){
-        console.log("enter score scene");
+
         game.SendToOverlay($('#highScore').html(), true);
     };
 

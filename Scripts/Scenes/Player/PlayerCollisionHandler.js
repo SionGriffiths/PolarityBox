@@ -128,7 +128,6 @@ var PlayerCollisionHandler = function(){
         }
     };
 
-
     this.PlayerOnEnemyCollision = function() {
 
         var enemyList = level.MapManager.Map.EnemyList;
@@ -149,8 +148,7 @@ var PlayerCollisionHandler = function(){
             var rectX = level.MapManager.Map.LevelEndX-64-level.MapManager.Map.MapCanvasLocation;
             var endGameRect = {X : rectX , Y: level.MapManager.Map.LevelEndY - 46, W: 64, H: 45};
             if(collision.boxIntersect(player.Rect(), endGameRect)){
-                console.log("you are teh winrar");
-                return true;
+               return true;
             }
         }
         return false;

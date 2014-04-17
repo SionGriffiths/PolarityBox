@@ -13,7 +13,6 @@ var GameComplete = function(){
     this.Init = function(gameref){
         alpha = 0;
         game = gameref;
-
         game.AudioManager.LoadAsync("circus", "Assets/Sounds/circus_b.ogg", function(){ loaded = true; } );
     };
 
@@ -56,7 +55,6 @@ var GameComplete = function(){
     this.playMenuMusic =  function(){
         if(loaded) {
             game.AudioManager.Sounds["circus"].play();
-            console.log("Play the tunes");
             music = true;
         }
     };

@@ -39,10 +39,7 @@ var LevelManager = function(){
                 this.SwitchScene(level);
                 break;
             case 6:
-//                console.log("Loading Level 6");
-//                level.Init("Assets/Maps/Level6.json");
-//                this.SwitchScene(level);
-                console.log("WINRAR");
+
                var finish = new GameComplete();
                 finish.Init(game);
                 this.SwitchScene(finish);
