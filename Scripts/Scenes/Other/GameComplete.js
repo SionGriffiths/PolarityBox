@@ -13,7 +13,7 @@ var GameComplete = function(){
     this.Init = function(gameref){
         alpha = 0;
         game = gameref;
-        game.AudioManager.LoadAsync("circus", "Assets/Sounds/circus_b.ogg", function(){ loaded = true; } );
+        game.AudioManager.LoadAsync("circus", "Assets/Sounds/circus_b.mp3", function(){ loaded = true; } );
     };
 
     this.Update = function(delta){

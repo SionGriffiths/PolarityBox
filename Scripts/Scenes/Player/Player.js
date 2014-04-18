@@ -57,11 +57,11 @@ var Player = function(){
         playerCollisionHandler = new PlayerCollisionHandler();
         playerCollisionHandler.Init(this, level);
         var self = this;
-        game.AudioManager.LoadAsync("JumpSound", "Assets/Sounds/Jump.wav", false); // Might want to add a callback!
-        game.AudioManager.LoadAsync("JumpSound2", "Assets/Sounds/Jump.wav", false);
-        game.AudioManager.LoadAsync("DeathSound", "Assets/Sounds/death.ogg", false);
-        game.AudioManager.LoadAsync("switch", "Assets/Sounds/swish.wav", false);
-        game.AudioManager.LoadAsync("switch2", "Assets/Sounds/swish.wav", false);
+        game.AudioManager.LoadAsync("JumpSound", "Assets/Sounds/Jump.mp3", false); // Might want to add a callback!
+        game.AudioManager.LoadAsync("JumpSound2", "Assets/Sounds/Jump.mp3", false);
+        game.AudioManager.LoadAsync("DeathSound", "Assets/Sounds/death.mp3", false);
+        game.AudioManager.LoadAsync("switch", "Assets/Sounds/swish.mp3", false);
+        game.AudioManager.LoadAsync("switch2", "Assets/Sounds/swish.mp3", false);
         game.ImageManager.LoadAsync("PlayerImage", "Assets/Images/PlayerSprite.png", function(){ self.Loaded = true; });
 
 
@@ -149,12 +149,12 @@ var Player = function(){
             playerAnimationHandler.FlipTransition();
             if(game.AudioManager.Sounds["JumpSound"].paused && game.AudioManager.Sounds["JumpSound"].duration > 0) {
                 if (window.chrome) {
-                    game.AudioManager.LoadAsync("JumpSound", "Assets/Sounds/Jump.wav", false);
+                    game.AudioManager.LoadAsync("JumpSound", "Assets/Sounds/Jump.mp3", false);
                 }
                 game.AudioManager.Sounds["JumpSound"].play();
             }else{
                 if (window.chrome) {
-                    game.AudioManager.LoadAsync("JumpSound2", "Assets/Sounds/Jump.wav", false);
+                    game.AudioManager.LoadAsync("JumpSound2", "Assets/Sounds/Jump.mp3", false);
                 }
                 game.AudioManager.Sounds["JumpSound2"].play();
             }

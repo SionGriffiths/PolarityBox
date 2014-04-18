@@ -45,12 +45,12 @@ var PlayerAnimationHandler = function(){
             lastFlipTime = Date.now();
             if(game.AudioManager.Sounds["switch"].paused && game.AudioManager.Sounds["switch"].duration > 0) {
                 if (window.chrome) {
-                    game.AudioManager.LoadAsync("switch", "Assets/Sounds/swish.wav", false);
+                    game.AudioManager.LoadAsync("switch", "Assets/Sounds/swish.mp3", false);
                 }
                 game.AudioManager.Sounds["switch"].play();
             }else{
                 if (window.chrome) {
-                    game.AudioManager.LoadAsync("switch2", "Assets/Sounds/swish.wav", false);
+                    game.AudioManager.LoadAsync("switch2", "Assets/Sounds/swish.mp3", false);
                 }
                 game.AudioManager.Sounds["switch2"].play();
             }
