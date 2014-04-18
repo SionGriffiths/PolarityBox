@@ -75,7 +75,7 @@ nav li{
     background-image: url("../Assets/Images/bg1.png");
     border-left: Solid 2px rgba(9,164,184,.4);
     border-right: Solid 2px rgba(9,164,184,.4);
-    border-bottom: Solid 1px rgba(9,164,184,.4);
+    border-bottom: Solid 2px rgba(9,164,184,.4);
 }
 
 #overlay{
@@ -110,6 +110,7 @@ nav li{
 
     background-image: url("../Assets/Images/bg1.png");
     z-index: 999;
+    border-bottom: Solid 2px rgba(9,164,184,.4);
     display : none;
 }
 
