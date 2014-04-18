@@ -91,7 +91,7 @@ var Level = function(){
 
         }else{
             this.ShowNotification("<h2>Level "+ game.LevelNumber + "</h2><h3>Loading</h3>");
-            game.Settings.Context.fillStyle = "rgba(0, 0, 0, " + alpha + ")";
+            game.Settings.Context.fillStyle = "#000";
             game.Settings.Context.fillRect(0,0, game.Settings.Canvas.width, game.Settings.Canvas.height);
         }
 
