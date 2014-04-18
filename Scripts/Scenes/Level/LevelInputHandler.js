@@ -40,6 +40,7 @@ var LevelInputHandler = function(){
             if (!level.player.Ready) {
                 level.player.Ready = true;
                 game.HideOverlay();
+
             }
             else
                 level.player.Jump();

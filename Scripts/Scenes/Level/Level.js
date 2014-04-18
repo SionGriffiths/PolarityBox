@@ -81,15 +81,20 @@ var Level = function(){
     // When the Level is rendered (call after the update function)
     this.Render  = function () {
         if(this.AssetsLoaded()){
-            if(this.MapManager.Loaded) {
-                this.MapManager.Map.Draw();
-                this.player.Draw();
-                hud.Draw();
+            if(!this.player.Ready){
+                game.SendToOverlay("<h2>Level "+ game.LevelNumber + "</h2><h3>Click to begin</h3>", false);
+                this.HideNotification();
             }
+            this.MapManager.Map.Draw();
+            this.player.Draw();
+            hud.Draw();
+
+        }else{
+            this.ShowNotification("<h2>Level "+ game.LevelNumber + "</h2><h3>Loading</h3>");
+            game.Settings.Context.fillStyle = "rgba(0, 0, 0, " + alpha + ")";
+            game.Settings.Context.fillRect(0,0, game.Settings.Canvas.width, game.Settings.Canvas.height);
         }
-        if(!this.player.Ready){
-            game.SendToOverlay("<h2>Level "+ game.LevelNumber + "</h2><h3>Click to begin</h3>", false);
-        }
+
     };
 
     this.FinishedLevel = function(){
