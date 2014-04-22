@@ -9,7 +9,7 @@ var Menu = function(){
     var game = null;
     var menuInputHandler = null;
     var assetsLoaded = false;
-    var assetsToLoad = 4;
+    var assetsToLoad = 2;
     var imagesLoaded = 0;
     var sceneTime = 0;
     // TODO: Give these names that make sense
@@ -30,8 +30,7 @@ var Menu = function(){
         // Load Menu Assets
         game.ImageManager.LoadAsync("MenuBackground", "Assets/Images/bg1.png", this.loadCallback());
         game.ImageManager.LoadAsync("titlePic", "Assets/Images/title.png", this.loadCallback());
-        game.AudioManager.LoadAsync("selectSound", "Assets/Sounds/select.ogg", this.loadCallback()); // Might want to add a callback!
-        game.AudioManager.LoadAsync("confirmSound", "Assets/Sounds/confirm.ogg", this.loadCallback());
+
 
 
     };
